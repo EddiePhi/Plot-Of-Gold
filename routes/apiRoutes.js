@@ -1,13 +1,15 @@
 const router = require("express").Router();
 const Plot = require("../models/plot.js");
 const Zipcode = require("../models/zipcode.js");
+const ForumThread = require("../models/forumThread.js");
 
-router.post("/api/plot", ({body}, res) => {
+//Plot Post Request
+router.post("/api/plot", ({ body }, res) => {
   Plot.create(body)
-    .then(dbPlot => {
+    .then((dbPlot) => {
       res.json(dbPlot);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });
@@ -23,33 +25,49 @@ router.post("/api/plot", ({body}, res) => {
 //     });
 // });
 
+//Plots Get Request
 router.get("/api/plot", (req, res) => {
-  Plot.find({}).sort({date: -1})
-    .then(dbPlot => {
+  Plot.find({})
+    .sort({ date: -1 })
+    .then((dbPlot) => {
       res.json(dbPlot);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
 
-router.post("/api/zipcode", ({body}, res) => {
+//Zipcode Post Request
+router.post("/api/zipcode", ({ body }, res) => {
   Zipcode.create(body)
-    .then(dbZipcode => {
+    .then((dbZipcode) => {
       res.json(dbZipcode);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });
 
+//Zipcode Get Request
 router.get("/api/zipcode", (req, res) => {
-  Zipcode.find({}).sort({date: -1})
-    .then(dbZipcode => {
+  Zipcode.find({})
+    .sort({ date: -1 })
+    .then((dbZipcode) => {
       res.json(dbZipcode);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json(err);
+    });
+});
+
+//ForumThread Post Request
+router.post("/api/forumThread", ({ body }, res) => {
+  ForumThread.create(body)
+    .then((dbForums) => {
+      res.json(dbForums);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
     });
 });
 
