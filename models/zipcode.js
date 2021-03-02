@@ -2,19 +2,17 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const zipcodeSchema = new Schema(
-  {
-    zipcode: {
-      type: Number,
-      required: "Enter the amount of rows"
-    },
-    date: {
-      type: Date,
-      default: Date.now
-    }
-  }
-);
+const zipCodeSchema = new Schema({
+  zipcode: {
+    type: Number,
+    required: "Enter the amount of rows",
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const Zipcode = mongoose.model("Zipcode", zipcodeSchema);
+const ZipCode = mongoose.model("ZipCode", zipCodeSchema);
 
-module.exports = Zipcode;
+module.exports = ZipCode;

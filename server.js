@@ -15,16 +15,16 @@ app.use(express.json());
 
 app.use(express.static("client"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gardening_DB", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/plotOfGold", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
-  useCreateIndex: true
+  useCreateIndex: true,
 });
 
 // routes
 app.use(require("./routes/apiRoutes.js"));
-require('./routes/htmlRoutes.js')(app);
+require("./routes/htmlRoutes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
