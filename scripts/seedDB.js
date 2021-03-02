@@ -81,10 +81,10 @@ const plantsSeed = [
   },
 ];
 
-db.Plants.remove({})
-  .then(() => db.plotofGold.collection.insertMany(plantsSeed))
+db.Plant.remove({})
+  .then(() => db.Plant.insertMany(plantsSeed))
   .then((data) => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data);
     process.exit(0);
   })
   .catch((err) => {

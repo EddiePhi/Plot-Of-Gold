@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/user.js");
 const Plot = require("../models/plot.js");
-const Zipcode = require("../models/zipcode.js");
+const ZipCode = require("../models/zipCode.js");
 const ForumThread = require("../models/forumThread.js");
 
 //Plot Post Request
@@ -41,28 +41,29 @@ router.get("/api/plot", (req, res) => {
 //User routes
 
 router.get("/api/user", (req, res) => {
-  User.find({}).sort({date: -1})
-    .then(dbUser => {
+  User.find({})
+    .sort({ date: -1 })
+    .then((dbUser) => {
       res.json(dbUser);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
 
-router.post("/api/user", ({body}, res) => {
+router.post("/api/user", ({ body }, res) => {
   User.create(body)
-    .then(dbUser => {
+    .then((dbUser) => {
       res.json(dbUser);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });
 
 //Zipcode Post Request
 router.post("/api/zipcode", ({ body }, res) => {
-  Zipcode.create(body)
+  ZipCode.create(body)
     .then((dbZipcode) => {
       res.json(dbZipcode);
     })
@@ -73,7 +74,7 @@ router.post("/api/zipcode", ({ body }, res) => {
 
 //Zipcode Get Request
 router.get("/api/zipcode", (req, res) => {
-  Zipcode.find({})
+  ZipCode.find({})
     .sort({ date: -1 })
     .then((dbZipcode) => {
       res.json(dbZipcode);

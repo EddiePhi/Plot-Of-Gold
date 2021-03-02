@@ -4,7 +4,7 @@ module.exports = {
   Plant: require("./plant"),
   Plot: require("./plot"),
   User: require("./user"),
-  Zipcode: require("./zipcode"),
+  ZipCode: require("./zipCode"),
   ForumnThread: require("./forumThread"),
   Location: require("./Location"),
 };
