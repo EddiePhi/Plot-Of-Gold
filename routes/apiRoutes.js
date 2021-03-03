@@ -61,6 +61,19 @@ router.post("/api/user", ({ body }, res) => {
     });
 });
 
+//user delete
+router.delete("/:id", function (req, res) {
+  User.findOneAndDelete({
+      _id: req.params.id,
+  })
+    .then(function (results) {
+      res.json(results);
+    })
+    .catch((error) => {
+      throw error;
+    });
+});
+
 //Zipcode Post Request
 router.post("/api/zipcode", ({ body }, res) => {
   ZipCode.create(body)
