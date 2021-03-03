@@ -84,6 +84,21 @@ router.get("/api/zipcode", (req, res) => {
     });
 });
 
+//Zipcode Delete Request
+router.delete("/:id", function (req, res) {
+  ZipCode.findOneAndDelete(
+    {
+      _id: req.params.id
+    }
+  )
+    .then(function (results) {
+      res.json(results);
+    })
+    .catch((error) => {
+      throw error;
+    });
+});
+
 //ForumThread Post Request
 router.post("/api/forumThread", ({ body }, res) => {
   ForumThread.create(body)
