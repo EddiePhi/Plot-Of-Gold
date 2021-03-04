@@ -64,7 +64,7 @@ router.post("/api/user", ({ body }, res) => {
 //user delete
 router.delete("/:id", function (req, res) {
   User.findOneAndDelete({
-      _id: req.params.id,
+    _id: req.params.id,
   })
     .then(function (results) {
       res.json(results);
@@ -99,11 +99,9 @@ router.get("/api/zipcode", (req, res) => {
 
 //Zipcode Delete Request
 router.delete("/:id", function (req, res) {
-  ZipCode.findOneAndDelete(
-    {
-      _id: req.params.id
-    }
-  )
+  ZipCode.findOneAndDelete({
+    _id: req.params.id,
+  })
     .then(function (results) {
       res.json(results);
     })
@@ -120,6 +118,30 @@ router.post("/api/forumThread", ({ body }, res) => {
     })
     .catch((err) => {
       res.status(404).json(err);
+    });
+});
+
+//ForumThread Get Request
+router.get("/api/forumThread", ({ body }, res) => {
+  ForumThread.find({})
+    .then((dbForums) => {
+      res.json(dbForums);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+});
+
+//ForumThread Delete Request
+router.delete("/:id", function (req, res) {
+  ForumThread.findOneAndDelete({
+    _id: req.params.id,
+  })
+    .then(function (results) {
+      res.json(results);
+    })
+    .catch((error) => {
+      throw error;
     });
 });
 
