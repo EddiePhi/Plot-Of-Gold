@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const User = require("../models/user.js");
 const Plot = require("../models/plot.js");
-const ZipCode = require("../models/zipCode.js");
+const Zipcode = require("../models/zipcode.js");
 const ForumThread = require("../models/forumThread.js");
 
 //Plot Post Request
@@ -12,18 +11,6 @@ router.post("/api/plot", ({ body }, res) => {
     })
     .catch((err) => {
       res.status(404).json(err);
-    });
-});
-
-//Plots Get Request
-router.get("/api/plot", (req, res) => {
-  Plot.find({})
-    .sort({ date: -1 })
-    .then((dbPlot) => {
-      res.json(dbPlot);
-    })
-    .catch((err) => {
-      res.status(500).json(err);
     });
 });
 
@@ -38,45 +25,21 @@ router.get("/api/plot", (req, res) => {
 //     });
 // });
 
-//User routes
-
-router.get("/api/user", (req, res) => {
-  User.find({})
+//Plots Get Request
+router.get("/api/plot", (req, res) => {
+  Plot.find({})
     .sort({ date: -1 })
-    .then((dbUser) => {
-      res.json(dbUser);
+    .then((dbPlot) => {
+      res.json(dbPlot);
     })
     .catch((err) => {
       res.status(500).json(err);
     });
 });
 
-router.post("/api/user", ({ body }, res) => {
-  User.create(body)
-    .then((dbUser) => {
-      res.json(dbUser);
-    })
-    .catch((err) => {
-      res.status(404).json(err);
-    });
-});
-
-//user delete
-router.delete("/:id", function (req, res) {
-  User.findOneAndDelete({
-      _id: req.params.id,
-  })
-    .then(function (results) {
-      res.json(results);
-    })
-    .catch((error) => {
-      throw error;
-    });
-});
-
 //Zipcode Post Request
 router.post("/api/zipcode", ({ body }, res) => {
-  ZipCode.create(body)
+  Zipcode.create(body)
     .then((dbZipcode) => {
       res.json(dbZipcode);
     })
@@ -87,28 +50,13 @@ router.post("/api/zipcode", ({ body }, res) => {
 
 //Zipcode Get Request
 router.get("/api/zipcode", (req, res) => {
-  ZipCode.find({})
+  Zipcode.find({})
     .sort({ date: -1 })
     .then((dbZipcode) => {
       res.json(dbZipcode);
     })
     .catch((err) => {
       res.status(500).json(err);
-    });
-});
-
-//Zipcode Delete Request
-router.delete("/:id", function (req, res) {
-  ZipCode.findOneAndDelete(
-    {
-      _id: req.params.id
-    }
-  )
-    .then(function (results) {
-      res.json(results);
-    })
-    .catch((error) => {
-      throw error;
     });
 });
 
@@ -120,6 +68,30 @@ router.post("/api/forumThread", ({ body }, res) => {
     })
     .catch((err) => {
       res.status(404).json(err);
+    });
+});
+
+//ForumThread Get Request
+router.get("/api/forumThread", ({ body }, res) => {
+  ForumThread.find({})
+    .then((dbForums) => {
+      res.json(dbForums);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+});
+
+//ForumThread Delete Request
+router.delete("/:id", function (req, res) {
+  ForumThread.findOneAndDelete({
+    _id: req.params.id,
+  })
+    .then(function (results) {
+      res.json(results);
+    })
+    .catch((error) => {
+      throw error;
     });
 });
 
