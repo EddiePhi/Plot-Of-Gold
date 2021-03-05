@@ -196,5 +196,4 @@ router.delete("/api/plant/:id", function (req, res) {
       throw error;
     });
 });
-
 module.exports = router;
