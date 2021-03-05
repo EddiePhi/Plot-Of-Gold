@@ -33,6 +33,8 @@ const plantSchema = new Schema({
   height: {
     type: Number,
   },
+  //Association with locations
+  // locations: [{ type: Schema.Types.ObjectId, ref: "Location" }],
 });
 
 const Plant = mongoose.model("Plant", plantSchema);
