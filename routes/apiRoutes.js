@@ -3,6 +3,7 @@ const User = require("../models/user.js");
 const Plot = require("../models/plot.js");
 const ZipCode = require("../models/zipCode.js");
 const ForumThread = require("../models/forumThread.js");
+const Plant = require("../models/plant.js");
 
 //Plot Post Request
 router.post("/api/plot", ({ body }, res) => {
@@ -62,7 +63,7 @@ router.post("/api/user", ({ body }, res) => {
 });
 
 //user delete
-router.delete("/:id", function (req, res) {
+router.delete("/api/user/:id", function (req, res) {
   User.findOneAndDelete({
     _id: req.params.id,
   })
@@ -98,7 +99,7 @@ router.get("/api/zipcode", (req, res) => {
 });
 
 //Zipcode Delete Request
-router.delete("/:id", function (req, res) {
+router.delete("/api/zipcode/:id", function (req, res) {
   ZipCode.findOneAndDelete({
     _id: req.params.id,
   })
@@ -133,7 +134,7 @@ router.get("/api/forumThread", ({ body }, res) => {
 });
 
 //ForumThread Delete Request
-router.delete("/:id", function (req, res) {
+router.delete("/api/forumthread/:id", function (req, res) {
   ForumThread.findOneAndDelete({
     _id: req.params.id,
   })
@@ -145,4 +146,54 @@ router.delete("/:id", function (req, res) {
     });
 });
 
+//Plants Post Request
+router.post("/api/plant", ({ body }, res) => {
+  if (body.plant_name) {
+    let plantContract = {
+      plant_name: body.plant_name,
+      plant_facts: body.plant_facts || "",
+      days_to_maturity: body.days_to_maturity || -1,
+      fruit_size_inches: body.fruit_size_inches || -1,
+      sun: body.sun || "",
+      spread: body.spread || -1,
+      height: body.height || -1
+  }
+    Plant.create(plantContract)
+    .then((dbForums) => {
+      res.json(dbForums);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+  } else {
+    res.send(400, {message: "Bad Request"})
+  }
+
+});
+
+//Plants Get Request
+router.get("/api/plant", ({ body }, res) => {
+  Plant.find({})
+    .then((dbForums) => {
+      res.json(dbForums);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+});
+
+//Plants Delete Request
+router.delete("/api/plant/:id", function (req, res) {
+  console.log("/api/plant/:id", req.params.id)
+  Plant.findOneAndDelete({
+    _id: req.params.id,
+  })
+    .then(function (results) {
+      console.log(results, "/api/plant/:id")
+      res.json(results);
+    })
+    .catch((error) => {
+      throw error;
+    });
+});
 module.exports = router;
