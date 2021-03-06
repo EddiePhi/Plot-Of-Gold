@@ -16,6 +16,8 @@ const userSchema = new Schema({
     default: Date.now,
   },
   plots: [{ type: Schema.Types.ObjectId, ref: "Plot" }],
+  forum_threads: [{ type: Schema.Types.ObjectId, ref: "ForumThread" }],
+  forum_comments: [{ type: Schema.Types.ObjectId, ref: "ForumComment" }],
 });
 
 const User = mongoose.model("User", userSchema);
