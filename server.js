@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/plotOfGold", {
 });
 
 // routes
-app.use(require("./routes/apiRoutes.js"));
+app.use(require("./routes/apiRoutes"));
 require("./routes/htmlRoutes.js")(app);
 
 app.listen(PORT, () => {
