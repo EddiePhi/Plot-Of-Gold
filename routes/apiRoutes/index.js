@@ -32,4 +32,10 @@ router.use("/plot", require("./plotRoutes.js"));
 //mount locations router
 router.use("/location", require("./locationRoutes.js"));
 
+//mount forumThread Router
+router.use("/forumThread", require("./forumThreadRoutes.js"));
+
+//mount forumComment Router
+router.use("/forumComment", require("./forumCommentRoutes.js"));
+
 module.exports = router;
