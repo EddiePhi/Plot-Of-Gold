@@ -9,6 +9,7 @@ const Plant = require("../../models/plant");
 
 //POST: Create new user
 router.post("/", (req, res) => {
+  console.log(req.body)
   User.create(req.body)
     .then((newUser) => {
       res.json(newUser);
