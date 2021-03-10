@@ -12,22 +12,20 @@ const router = require("express").Router();
 // //mount user router
 router.use("/user", require("./userRoutes"));
 
-//mount forecast router
-// router.use("/forecast", require("./forecastRoutes"));
-
 //mount plants router
 // router.use("/plants", require("./plantRoutes"));
 
 //mount plots router
 router.use("/plot", require("./plotRoutes.js"));
 
-//mount zipcode router
-// router.use("/zipcode", require("./zipRoutes"));
+// mount zipcode router
+router.use("/zipCode", require("./zipCodeRoutes"));
 
 //mount forecast router
-// router.use("/forecast", require("./forecastRoutes"));
+router.use("/forecast", require("./forecastRoutes"));
 
 //mount currentWeather router
+router.use("/currentWeather", require("./currentWeatherRoutes.js"));
 
 //mount locations router
 router.use("/location", require("./locationRoutes.js"));

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const zipCodeSchema = new Schema({
   zipCode: {
-    type: Number,
+    type: String,
     required: "Enter the amount of rows",
   },
   date: {

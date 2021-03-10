@@ -3,8 +3,6 @@
 const router = require("express").Router();
 const User = require("../models/user.js");
 const Plot = require("../models/plot.js");
-const ZipCode = require("../models/zipCode.js");
-
 const Plant = require("../models/plant.js");
 
 //Plot Post Request
@@ -77,41 +75,6 @@ router.delete("/api/user/:id", function (req, res) {
     });
 });
 
-//Zipcode Post Request
-router.post("/api/zipcode", ({ body }, res) => {
-  ZipCode.create(body)
-    .then((dbZipcode) => {
-      res.json(dbZipcode);
-    })
-    .catch((err) => {
-      res.status(404).json(err);
-    });
-});
-
-//Zipcode Get Request
-router.get("/api/zipcode", (req, res) => {
-  ZipCode.find({})
-    .sort({ date: -1 })
-    .then((dbZipcode) => {
-      res.json(dbZipcode);
-    })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
-});
-
-//Zipcode Delete Request
-router.delete("/api/zipcode/:id", function (req, res) {
-  ZipCode.findOneAndDelete({
-    _id: req.params.id,
-  })
-    .then(function (results) {
-      res.json(results);
-    })
-    .catch((error) => {
-      throw error;
-    });
-});
 
 //Plants Post Request
 router.post("/api/plant", ({ body }, res) => {
