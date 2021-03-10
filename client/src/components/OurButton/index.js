@@ -1,10 +1,16 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-function OurButton() {
+function OurButton({ value, onClick }) {
   return (
     <>
-      <Button className="btn-success">Button</Button>
+      <Button
+        variant="success"
+        as="input"
+        type="submit"
+        value={value}
+        onClick={onClick}
+      />
     </>
   );
 }
