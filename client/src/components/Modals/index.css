@@ -1,0 +1,18 @@
+.custmodal > div {
+  text-align: center;
+}
+
+.plantButton {
+  font-size: 0.875rem;
+  text-align: center;
+  color: beige;
+  height: 120px;
+  width: 80px;
+  border-width: medium;
+  border-radius: 0.313rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://via.placeholder.com/120x160/93c54b/93c54b.com);
+  margin-right: 0.625rem;
+  margin-bottom: 0.625rem;
+}
