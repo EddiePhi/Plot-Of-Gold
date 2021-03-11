@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import "./index.css";
-import { Modal, Col, Row, Container } from "react-bootstrap";
-import OurButton from "../OurButton";
+import { Modal } from "react-bootstrap";
+import OurButton from "../OurButtonProps";
 import PlantModalItem from "./PlantModalItem";
 
-function BaseModal() {
+function BaseModal({ title }) {
   const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
-      <Modal show={show} onHide={() => setShow(false)} ClassName="custModal">
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        ClassName="custModal"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header>
-          <Modal.Title id="example-custom-modal-styling-title">
-            Plant-i-Dex
-          </Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
           <OurButton value="Close" onClick={handleClose} />
         </Modal.Header>
         <Modal.Body>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-function OurButton({ value, onClick }) {
+function OurButtonProps({ value, onClick }) {
   return (
     <>
       <Button
@@ -15,4 +15,4 @@ function OurButton({ value, onClick }) {
   );
 }
 
-export default OurButton;
+export default OurButtonProps;
