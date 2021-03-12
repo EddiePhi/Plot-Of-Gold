@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import OurNavbar from "./components/OurNavbar";
 import "bootswatch/dist/sandstone/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import Homepage from "./pages/HomePage";
+import LandingPage from "./pages/landingPage";
+import LoginPage from "./pages/loginPage";
+import SignupPage from "./pages/signupPage";
+import Homepage from "./pages/homePage";
 import ForumPage from "./pages/ForumPage";
 
 // import logo from "./logo.svg";
