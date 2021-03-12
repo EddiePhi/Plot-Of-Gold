@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./index.css";
 import BaseModal from "../../components/Modals/BaseModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
-import { Col, Row, Container, Button } from "react-bootstrap";
+import { Col, Row, Container, Button, Dropdown } from "react-bootstrap";
+import PlotTable from "../../components/PlotTable/index";
 
 function HomePage() {
   //plant modal state and open/close functionality
@@ -24,9 +25,9 @@ function HomePage() {
         show={createPlot}
         close={createPlotClose}
       />
-      <Container>
-        <Row className="space" noGutters={true}>
-          <Col className="text-center">
+      <Container fluid>
+        <Row>
+          <Col md={2} className="my-auto text-center">
             <Button
               className="homeButton"
               variant="success"
@@ -34,8 +35,7 @@ function HomePage() {
             >
               View Plant-i-Dex
             </Button>
-          </Col>
-          <Col className="text-center">
+
             <Button
               className="homeButton"
               variant="success"
@@ -43,25 +43,33 @@ function HomePage() {
             >
               Create Plot
             </Button>
-          </Col>
-        </Row>
-        <Row noGutters={true}>
-          <Col className="text-center">
+
             <Button className="homeButton" variant="success">
-              <Link to="/forum">
+              <Link to="/forum" className="text-center">
                 <p>Community Page</p>
               </Link>
             </Button>
-          </Col>
-          <Col className="text-center">
+
             <Button className="homeButton" variant="success">
               Add Plant
             </Button>
           </Col>
-        </Row>
-        <Row className="text-center space">
-          <Col className="text-center">
-            <h1>No PLots Yet!</h1>
+          <Col md={1}></Col>
+          <Col md={6} className="text-center">
+            <PlotTable />
+          </Col>
+          <Col md={3}>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Dropdown Button
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Col>
         </Row>
       </Container>

@@ -1,0 +1,19 @@
+.plot {
+  border: 5px solid #fff;
+  border-radius: 10px;
+  border-collapse: unset;
+  border-spacing: 0;
+}
+
+.plot td {
+  width: 2rem;
+  height: 2rem;
+  background-color: #6f562a;
+  border: 3px solid #93c54b;
+  padding: 0;
+}
+
+table {
+  height: 100%;
+  width: 100%;
+}
