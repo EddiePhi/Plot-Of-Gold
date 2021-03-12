@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import OurNavbar from "./components/OurNavbar";
 import "bootswatch/dist/sandstone/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
