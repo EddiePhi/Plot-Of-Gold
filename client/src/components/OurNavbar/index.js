@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function OurNavbar() {
   return (
@@ -7,9 +8,21 @@ function OurNavbar() {
       <Navbar bg="primary" variant="dark">
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Link className="nav-link" to="/">
+            Landing
+          </Link>
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+          <Link className="nav-link" to="/signup">
+            Signup
+          </Link>
+          <Link className="nav-link" to="/home">
+            Plots
+          </Link>
+          <Link className="nav-link" to="/forum">
+            Forum
+          </Link>
         </Nav>
       </Navbar>
     </>
