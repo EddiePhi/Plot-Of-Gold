@@ -10,7 +10,7 @@
   border-radius: 0.313rem;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(https://via.placeholder.com/120x160/93c54b/93c54b.com);
+  background-image: url("../../assets/plant-images/pepper.png");
   margin-right: 0.625rem;
   margin-bottom: 0.625rem;
 }

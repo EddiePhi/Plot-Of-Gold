@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./index.css";
 import BaseModal from "../../components/Modals/BaseModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
@@ -47,7 +48,9 @@ function HomePage() {
         <Row noGutters={true}>
           <Col className="text-center">
             <Button className="homeButton" variant="success">
-              Visit Community Page
+              <Link to="/forum">
+                <p>Community Page</p>
+              </Link>
             </Button>
           </Col>
           <Col className="text-center">

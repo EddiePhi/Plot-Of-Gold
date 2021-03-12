@@ -8,8 +8,7 @@ import {
   Row,
   useAccordionToggle,
 } from "react-bootstrap";
-
-// <button className="plantButton">Plant Name</button>
+import Pepper from "../../assets/plant-images/pepper.png";
 
 function PlantModalItem() {
   //Accordion functionality
@@ -35,7 +34,7 @@ function PlantModalItem() {
     <Accordion defaultActiveKey="1">
       <Card>
         <Card.Header>
-          <CustomToggle eventKey="0">Click me!</CustomToggle>
+          <CustomToggle eventKey="0"></CustomToggle>
           <h2>Plant Name 1</h2>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
@@ -67,10 +66,10 @@ function PlantModalItem() {
       </Card>
       <Card>
         <Card.Header>
-          <CustomToggle eventKey="1">Click me!</CustomToggle>
+          <CustomToggle eventKey="0"></CustomToggle>
           <h2>Plant Name 2</h2>
         </Card.Header>
-        <Accordion.Collapse eventKey="1">
+        <Accordion.Collapse eventKey="0">
           <Card.Body>
             <Container>
               <Row>
