@@ -2,30 +2,47 @@ import React, { useState } from "react";
 import "./index.css";
 import OurButtonProps from "../../components/OurButtonProps/index";
 import BaseModal from "../../components/Modals/BaseModal";
+import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button } from "react-bootstrap";
+import PlantCard from "../../components/PlantCard/index";
+import OurForm from "../../components/OurForm";
 
 function HomePage() {
   //plant modal state and open/close functionality
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const plantClose = () => setShow(false);
+  const plantShow = () => setShow(true);
+
+  //create pllot state and open/close functionality
+  const [createPlot, setCreatePlot] = useState(false);
+  const createPlotClose = () => setCreatePlot(false);
+  const createPlotShow = () => setCreatePlot(true);
 
   return (
     <>
-      <BaseModal title="Plant-i-Dex" show={show} close={handleClose} />
+      <BaseModal title="Plant-i-Dex" show={show} close={plantClose} />
+      <CreatePlotModal
+        title="Enter Information Below to Create a new Plot"
+        show={createPlot}
+        close={createPlotClose}
+      />
       <Container>
         <Row className="space" noGutters={true}>
           <Col className="text-center">
             <Button
               className="homeButton"
               variant="success"
-              onClick={handleShow}
+              onClick={plantShow}
             >
               View Plant-i-Dex
             </Button>
           </Col>
           <Col className="text-center">
-            <Button className="homeButton" variant="success">
+            <Button
+              className="homeButton"
+              variant="success"
+              onClick={createPlotShow}
+            >
               Create Plot
             </Button>
           </Col>
@@ -48,12 +65,6 @@ function HomePage() {
           </Col>
         </Row>
       </Container>
-
-      {/* <OurButtonProps value="View Plant-i-Dex" onClick={handleShow} />
-      <OurButtonProps value="Create Plot" />
-      <OurButtonProps value="View Plots" />
-      <OurButtonProps value="Visit the Communtiy Page" />
-      <BaseModal title="Plant-i-Dex" show={show} close={handleClose} /> */}
     </>
   );
 }

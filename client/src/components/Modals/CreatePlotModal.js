@@ -3,9 +3,8 @@ import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import OurForm from "../OurForm/index";
-import PlantCard from "../PlantCard";
 
-function BaseModal({ title, close, show, plantCard, createPlotForm }) {
+function CreatePlotModal({ title, close, show }) {
   return (
     <>
       <Modal
@@ -19,18 +18,10 @@ function BaseModal({ title, close, show, plantCard, createPlotForm }) {
           <Modal.Title>{title}</Modal.Title>
           <OurButton value="Close" onClick={close} />
         </Modal.Header>
-        <Modal.Body>
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-        </Modal.Body>
+        <Modal.Body></Modal.Body>
       </Modal>
     </>
   );
 }
 
-export default BaseModal;
+export default CreatePlotModal;
