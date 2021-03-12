@@ -2,10 +2,11 @@ import React from "react";
 import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
-import OurForm from "../OurForm/index";
-import PlantCard from "../PlantCard/index";
+import PlantModalItem from "../PlantModalItem/index";
 
-function BaseModal({ title, close, show, plantCard, createPlotForm }) {
+function BaseModal({ title, close, show }) {
+  //PLant info Sub Modal state and open/close
+
   return (
     <>
       <Modal
@@ -20,13 +21,7 @@ function BaseModal({ title, close, show, plantCard, createPlotForm }) {
           <OurButton value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
-          <PlantCard />
+          <PlantModalItem />
         </Modal.Body>
       </Modal>
     </>

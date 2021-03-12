@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import "./index.css";
-import OurButtonProps from "../../components/OurButtonProps/index";
 import BaseModal from "../../components/Modals/BaseModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button } from "react-bootstrap";
-import PlantCard from "../../components/PlantCard/index";
-import OurForm from "../../components/OurForm";
 
 function HomePage() {
   //plant modal state and open/close functionality
@@ -13,7 +10,7 @@ function HomePage() {
   const plantClose = () => setShow(false);
   const plantShow = () => setShow(true);
 
-  //create pllot state and open/close functionality
+  //create plot modal state and open/close functionality
   const [createPlot, setCreatePlot] = useState(false);
   const createPlotClose = () => setCreatePlot(false);
   const createPlotShow = () => setCreatePlot(true);
