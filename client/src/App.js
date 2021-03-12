@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from "./pages/landingPage";
 import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";
-import Homepage from "./pages/homePage";
+import Homepage from "./pages/HomePage/homePage";
 import ForumPage from "./pages/ForumPage";
 
 // import logo from "./logo.svg";

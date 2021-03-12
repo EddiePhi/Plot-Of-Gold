@@ -21,5 +21,4 @@ function OurForm({text}) {
     </>
   );
 }
-
 export default OurForm;
