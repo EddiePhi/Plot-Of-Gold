@@ -1,19 +1,20 @@
 import React from "react";
 import { Form, Col } from "react-bootstrap";
+import OurButtonProps from "../OurButtonProps";
 
-function OurForm({text}) {
+function OurForm({ text, placeHolder }) {
   return (
     <>
-        <Form.Group>
-            <Form.Row>
-                <Form.Label column lg={2}>
-                {text}
-                </Form.Label>
-                <Col>
-                <Form.Control type="text" placeholder="Test Text" />
-                </Col>
-            </Form.Row>
-        </Form.Group>
+      <Form.Group>
+        <Form.Row>
+          <Form.Label column lg={2}>
+            {text}
+          </Form.Label>
+          <Col>
+            <Form.Control type="text" placeholder={placeHolder} />
+          </Col>
+        </Form.Row>
+      </Form.Group>
     </>
   );
 }

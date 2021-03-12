@@ -3,7 +3,7 @@ import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import OurForm from "../OurForm/index";
-import PlantCard from "../PlantCard";
+import PlantCard from "../PlantCard/index";
 
 function BaseModal({ title, close, show, plantCard, createPlotForm }) {
   return (

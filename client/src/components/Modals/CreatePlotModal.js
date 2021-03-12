@@ -18,7 +18,13 @@ function CreatePlotModal({ title, close, show }) {
           <Modal.Title>{title}</Modal.Title>
           <OurButton value="Close" onClick={close} />
         </Modal.Header>
-        <Modal.Body></Modal.Body>
+        <Modal.Body>
+          <OurForm text="Plot Name" />
+          <OurForm text="Rows" />
+          <OurForm text="Columns" />
+          <OurForm text="Location" placeHolder="Enter Zip Code" />
+          <OurButton onClick={close}>Submit</OurButton>
+        </Modal.Body>
       </Modal>
     </>
   );
