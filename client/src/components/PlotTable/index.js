@@ -1,6 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import "./index.css";
+import { Table } from "react-bootstrap";
+import TempIcon from "../../assets/plant-images/lotus--v1.png";
+
 
 function PlotTable({name, rows, columns}) {
     let theader = `<table id="table" border="1">\n`;
@@ -25,9 +29,100 @@ function PlotTable({name, rows, columns}) {
 
   return (
     <>
-        <div>{ReactHtmlParser(wholeTable)}</div>
+      <div>{ReactHtmlParser(wholeTable)}</div>
+    
+      <h2>Plot Name</h2>
+      <Table className="plot table">
+        <tbody>
+          <tr>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+            <td>
+              <img src={TempIcon} alt="tempicon"></img>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
     </>
-  )
+  );
 }
 
 export default PlotTable;

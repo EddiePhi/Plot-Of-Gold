@@ -2,11 +2,9 @@ import React from "react";
 import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
-import PlantModalItem from "../PlantModalItem/index";
+import CreatePlotForm from "../CreatePlotForm/index";
 
-function BaseModal({ title, close, show }) {
-  //PLant info Sub Modal state and open/close
-
+function CreatePlotModal({ title, close, show }) {
   return (
     <>
       <Modal
@@ -21,11 +19,15 @@ function BaseModal({ title, close, show }) {
           <OurButton value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
-          <PlantModalItem />
+          <CreatePlotForm text="Plot Name" />
+          <CreatePlotForm text="Rows" />
+          <CreatePlotForm text="Columns" />
+          <CreatePlotForm text="Location" placeHolder="Enter Zip Code" />
+          <OurButton onClick={close}>Submit</OurButton>
         </Modal.Body>
       </Modal>
     </>
   );
 }
 
-export default BaseModal;
+export default CreatePlotModal;

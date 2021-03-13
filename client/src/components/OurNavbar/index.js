@@ -6,8 +6,7 @@ function OurNavbar() {
   return (
     <>
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <div className="collapse navbar-collapse">
+        <Navbar.Brand href="#home">Plot of Gold</Navbar.Brand>
         <Nav className="mr-auto">
           <Link className="nav-link" to="/">
             Landing
