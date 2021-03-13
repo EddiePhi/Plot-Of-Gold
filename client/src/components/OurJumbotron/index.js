@@ -1,17 +1,12 @@
 import React from "react";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Jumbotron } from "react-bootstrap";
+import './ourJumbotron.css'
 
-function OurJumbotron() {
+function OurJumbotron(props) {
   return (
     <>
         <Jumbotron fluid>
-            <Container>
-                <h1>Fluid jumbotron</h1>
-                <p>
-                This is a modified jumbotron that occupies the entire horizontal space of
-                its parent.
-                </p>
-            </Container>
+        {props.children}
         </Jumbotron>
     </>
   );

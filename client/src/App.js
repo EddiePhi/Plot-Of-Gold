@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from "./pages/landingPage";
 import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";
-import Homepage from "./pages/homePage";
+
+import Homepage from "./pages/HomePage/homePage";
+
 import ForumPage from "./pages/ForumPage";
 import ForumPost from "./pages/ForumPost";
 import ForumCreate from "./pages/ForumCreate";
