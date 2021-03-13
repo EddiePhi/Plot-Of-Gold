@@ -24,10 +24,12 @@ function OurNavbar() {
             Forum
           </Link>
         </Nav>
-        <Container className="navbar-nav ml-auto float-right" style={{color: "#FFFFFF80", fontFamily: "Roboto"}}>
+        <Container
+          className="navbar-nav ml-auto float-right"
+          style={{ color: "#FFFFFF80", fontFamily: "Roboto" }}
+        >
           TEST DATE
         </Container>
-        </div>
       </Navbar>
     </>
   );

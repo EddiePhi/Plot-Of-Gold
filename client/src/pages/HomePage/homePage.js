@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import BaseModal from "../../components/Modals/BaseModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button, Dropdown } from "react-bootstrap";
 import PlotTable from "../../components/PlotTable/index";
+import API from "../../utils/API";
 
 function HomePage() {
   //plant modal state and open/close functionality
@@ -16,6 +17,25 @@ function HomePage() {
   const [createPlot, setCreatePlot] = useState(false);
   const createPlotClose = () => setCreatePlot(false);
   const createPlotShow = () => setCreatePlot(true);
+
+  //create current plot state
+  const [plot, setPlot] = useState([]);
+
+  useEffect(() => {
+    loadSavedPlot();
+  }, []);
+
+  function loadSavedPlot() {
+    API.getPlot()
+      .then((res) => setPlot(res.data))
+      .catch((err) => console.log(err));
+    console.log(plot);
+  }
+
+  function showData(e) {
+    e.preventDefault();
+    console.log(plot);
+  }
 
   return (
     <>
@@ -50,13 +70,17 @@ function HomePage() {
               </Link>
             </Button>
 
-            <Button className="homeButton" variant="success">
+            <Button onClick={showData} className="homeButton" variant="success">
               Add Plant
             </Button>
           </Col>
           <Col md={1}></Col>
           <Col md={6} className="text-center">
-            <PlotTable />
+            <PlotTable
+              name="Name Test"
+              rows={plot.plot_rows}
+              columns={plot.plot_columns}
+            />
           </Col>
           <Col md={3} className>
             <Dropdown>
@@ -65,9 +89,13 @@ function HomePage() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                {plot.map((plotItem) => {
+                  return (
+                    <Dropdown.Item key={plotItem._id} href="#/action-1">
+                      {plotItem.plot_name}
+                    </Dropdown.Item>
+                  );
+                })}
               </Dropdown.Menu>
             </Dropdown>
           </Col>
