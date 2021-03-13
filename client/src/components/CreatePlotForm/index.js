@@ -1,8 +1,7 @@
 import React from "react";
 import { Form, Col } from "react-bootstrap";
-import OurButtonProps from "../OurButtonProps";
 
-function CreatePlotForm({ text, placeHolder }) {
+function CreatePlotForm({ text, placeHolder, onChange, value, name }) {
   return (
     <>
       <Form.Group>
@@ -11,7 +10,13 @@ function CreatePlotForm({ text, placeHolder }) {
             {text}
           </Form.Label>
           <Col>
-            <Form.Control type="text" placeholder={placeHolder} />
+            <Form.Control
+              name={name}
+              type="text"
+              placeholder={placeHolder}
+              onChange={onChange}
+              value={value}
+            />
           </Col>
         </Form.Row>
       </Form.Group>

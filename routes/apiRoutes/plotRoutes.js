@@ -46,19 +46,11 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-//POST: User creates new plot
-router.post("/:id", (req, res) => {
+//POST: create post in ui test
+router.post("/", (req, res) => {
   Plot.create(req.body)
     .then((plot) => {
       console.log(plot);
-      User.findOneAndUpdate(
-        { _id: req.params.id },
-        { $push: { plots: plot._id } },
-        { new: true }
-      )
-        .then()
-        .catch((err) => res.json(err));
     })
     .then((dbPlot) => {
       res.json(dbPlot);
@@ -67,6 +59,27 @@ router.post("/:id", (req, res) => {
       res.json(err);
     });
 });
+
+//POST: User creates new plot
+// router.post("/:id", (req, res) => {
+//   Plot.create(req.body)
+//     .then((plot) => {
+//       console.log(plot);
+//       User.findOneAndUpdate(
+//         { _id: req.params.id },
+//         { $push: { plots: plot._id } },
+//         { new: true }
+//       )
+//         .then()
+//         .catch((err) => res.json(err));
+//     })
+//     .then((dbPlot) => {
+//       res.json(dbPlot);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 //DELETE: Remove specified plot
 router.delete("/:id", function (req, res) {
