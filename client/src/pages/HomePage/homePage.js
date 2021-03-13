@@ -58,7 +58,7 @@ function HomePage() {
           <Col md={6} className="text-center">
             <PlotTable />
           </Col>
-          <Col md={3}>
+          <Col md={3} className>
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Dropdown Button
