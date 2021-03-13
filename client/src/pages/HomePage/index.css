@@ -1,6 +1,7 @@
 .homeButton {
   width: 8rem;
   height: 3rem;
+  margin: 0.625rem;
 }
 
 .space {
@@ -10,4 +11,8 @@
 
 p {
   color: white;
+}
+
+.menuButtons {
+  justify-content: center;
 }
