@@ -8,10 +8,15 @@ import mike from '../assets/profilePictures/michael.jpeg';
 import tim from '../assets/profilePictures/timothy.jpeg';
 import seedling from '../assets/landingPage/seedling.jpg';
 
+import PlotTable from '../components/PlotTable'
+
 function LandingPage() {
   return (
     <>
-      <OurJumbotron>
+      <h1>Plot testing</h1>
+      <PlotTable name="Name Test" rows={2} columns={2} />
+
+      {/* <OurJumbotron>
         <Container className="d-flex justify-content-center">
           <div className="jumbo-body jumbo-image">
             <div>
@@ -40,7 +45,7 @@ function LandingPage() {
             </Container>
           </Col>
           <Col lg={4} className="d-flex justify-content-center">
-            <img src={seedling} style={{height:"200px"}}></img>
+            <img src={seedling} style={{height:"200px"}} alt="Seedling"></img>
           </Col>
         </Row>
         
@@ -99,7 +104,7 @@ function LandingPage() {
         <Container className="d-flex justify-content-center">
           <Button className="btn-success mb-3">Start</Button>
         </Container>
-      </div>
+      </div> */}
     </>
   );
 }

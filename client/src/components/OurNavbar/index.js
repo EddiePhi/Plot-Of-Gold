@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function OurNavbar() {
@@ -24,6 +24,10 @@ function OurNavbar() {
             Forum
           </Link>
         </Nav>
+        <Container className="navbar-nav ml-auto float-right" style={{color: "#FFFFFF80", fontFamily: "Roboto"}}>
+          TEST DATE
+        </Container>
+        </div>
       </Navbar>
     </>
   );
