@@ -30,12 +30,14 @@ function HomePage() {
     loadSavedPlants();
     loadSavedPlot();
   }, []);
+
   //GET: retreive plot data and set to plot state
   function loadSavedPlot() {
     API.getPlot()
       .then((res) => setPlot(res.data))
       .catch((err) => console.log(err));
   }
+
   //////////////////////////////////////////////////////////
 
   //PLANT FUNCTIONAOLITY
@@ -96,14 +98,10 @@ function HomePage() {
           </Col>
           <Col md={1}></Col>
           <Col md={6} className="text-center" id="third">
-            <PlotTable
-              name="Name Test"
-              rows={plot.plot_rows}
-              columns={plot.plot_columns}
-            />
+            <PlotTable data={plot} />
           </Col>
           <Col md={3} className="text-center" id="second">
-            <Dropdown>
+            <Dropdown className="plotDropList">
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Dropdown Button
               </Dropdown.Toggle>

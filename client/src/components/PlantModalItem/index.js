@@ -39,8 +39,8 @@ function PlantModalItem({ data }) {
     <>
       {data.map((plant) => {
         return (
-          <Accordion defaultActiveKey="1">
-            <Card key={plant._id}>
+          <Accordion key={plant._id} defaultActiveKey="1">
+            <Card>
               <Card.Header>
                 <CustomToggle eventKey="0"></CustomToggle>
                 <h2>{plant.plant_name}</h2>
