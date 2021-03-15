@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
@@ -6,7 +6,6 @@ import PlantModalItem from "../PlantModalItem/index";
 
 function BaseModal({ title, close, show, data }) {
   //PLant info Sub Modal state and open/close
-
   return (
     <>
       <Modal

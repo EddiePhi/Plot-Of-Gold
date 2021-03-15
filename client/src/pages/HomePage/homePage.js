@@ -67,7 +67,7 @@ function HomePage() {
       />
       <Container fluid>
         <Row>
-          <Col md={2} className="my-auto text-center">
+          <Col md={2} className="my-auto text-center" id="first">
             <Button
               className="homeButton"
               variant="success"
@@ -95,14 +95,14 @@ function HomePage() {
             </Button>
           </Col>
           <Col md={1}></Col>
-          <Col md={6} className="text-center">
+          <Col md={6} className="text-center" id="third">
             <PlotTable
               name="Name Test"
               rows={plot.plot_rows}
               columns={plot.plot_columns}
             />
           </Col>
-          <Col md={3} className>
+          <Col md={3} className="text-center" id="second">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Dropdown Button

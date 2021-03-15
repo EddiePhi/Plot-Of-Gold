@@ -8,16 +8,21 @@ import {
   Row,
   useAccordionToggle,
 } from "react-bootstrap";
-import { Tomato } from "../../assets/plant-images/Tomato.png";
+import {
+  Tomato,
+  Lettuce,
+  Cucumber,
+  Pepper,
+  Dill,
+  Sage,
+  Rosemary,
+} from "../../assets/plant-images";
 
 function PlantModalItem({ data }) {
   //Accordion functionality
 
   function CustomToggle({ children, eventKey }) {
-    const decoratedOnClick = useAccordionToggle(eventKey, () =>
-      console.log("totally custom!")
-    );
-
+    const decoratedOnClick = useAccordionToggle(eventKey);
     return (
       <button
         className="plantButton"
