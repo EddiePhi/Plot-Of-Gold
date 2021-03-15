@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import PlantModalItem from "../PlantModalItem/index";
 
-function BaseModal({ title, close, show }) {
+function BaseModal({ title, close, show, data }) {
   //PLant info Sub Modal state and open/close
 
   return (
@@ -21,7 +21,7 @@ function BaseModal({ title, close, show }) {
           <OurButton value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
-          <PlantModalItem />
+          <PlantModalItem data={data} />
         </Modal.Body>
       </Modal>
     </>

@@ -18,6 +18,9 @@ const API = {
   getUser: function () {
     return axios.get("/user");
   },
+  getPlants: function () {
+    return axios.get("/plants");
+  },
 
   // getBooks: function (query) {
   //   return axios.get(BASEURL + query + APIKEY);

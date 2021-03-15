@@ -8,9 +8,9 @@ import {
   Row,
   useAccordionToggle,
 } from "react-bootstrap";
-import Pepper from "../../assets/plant-images/pepper.png";
+import { Tomato } from "../../assets/plant-images/Tomato.png";
 
-function PlantModalItem() {
+function PlantModalItem({ data }) {
   //Accordion functionality
 
   function CustomToggle({ children, eventKey }) {
@@ -31,72 +31,46 @@ function PlantModalItem() {
   }
 
   return (
-    <Accordion defaultActiveKey="1">
-      <Card>
-        <Card.Header>
-          <CustomToggle eventKey="0"></CustomToggle>
-          <h2>Plant Name 1</h2>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>
-            <Container>
-              <Row>
-                <Col>Days to Maturity:</Col>
-                <Col>50</Col>
-              </Row>
-              <Row>
-                <Col>Fruit Size:</Col>
-                <Col>4</Col>
-              </Row>
-              <Row>
-                <Col>Sun Exposure:</Col>
-                <Col>Full Sun</Col>
-              </Row>
-              <Row>
-                <Col>Spread:</Col>
-                <Col>16</Col>
-              </Row>
-              <Row>
-                <Col>Height:</Col>
-                <Col>22</Col>
-              </Row>
-            </Container>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
-      <Card>
-        <Card.Header>
-          <CustomToggle eventKey="0"></CustomToggle>
-          <h2>Plant Name 2</h2>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>
-            <Container>
-              <Row>
-                <Col>Days to Maturity:</Col>
-                <Col>50</Col>
-              </Row>
-              <Row>
-                <Col>Fruit Size:</Col>
-                <Col>4</Col>
-              </Row>
-              <Row>
-                <Col>Sun Exposure:</Col>
-                <Col>Full Sun</Col>
-              </Row>
-              <Row>
-                <Col>Spread:</Col>
-                <Col>16</Col>
-              </Row>
-              <Row>
-                <Col>Height:</Col>
-                <Col>22</Col>
-              </Row>
-            </Container>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
+    <>
+      {data.map((plant) => {
+        return (
+          <Accordion defaultActiveKey="1">
+            <Card key={plant._id}>
+              <Card.Header>
+                <CustomToggle eventKey="0"></CustomToggle>
+                <h2>{plant.plant_name}</h2>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <Container>
+                    <Row>
+                      <Col>Days to Maturity:</Col>
+                      <Col>{plant.days_to_maturity}</Col>
+                    </Row>
+                    <Row>
+                      <Col>Fruit Size:</Col>
+                      <Col>{plant.fruit_size_inches}"</Col>
+                    </Row>
+                    <Row>
+                      <Col>Sun Exposure:</Col>
+                      <Col>{plant.sun}</Col>
+                    </Row>
+                    <Row>
+                      <Col>Spread:</Col>
+                      <Col>{plant.spread}"</Col>
+                    </Row>
+                    <Row>
+                      <Col>Height:</Col>
+                      <Col>{plant.height}"</Col>
+                    </Row>
+                  </Container>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+        );
+      })}
+    </>
   );
 }
 
