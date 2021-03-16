@@ -2,6 +2,9 @@
   width: 8rem;
   height: 3rem;
   margin: 0.625rem;
+  color: #485824;
+  font-weight: bold;
+  border: 1px solid #485824;
 }
 
 .space {
@@ -10,15 +13,14 @@
 }
 
 p {
-  color: white;
-}
-
-.menuButtons {
-  justify-content: center;
+  color: #485824;
 }
 
 .plotDropList {
   margin: 0.625rem;
+  color: #485824;
+  font-weight: bold;
+  border: 1px solid #485824;
 }
 
 @media only screen and (max-width: 768px) {

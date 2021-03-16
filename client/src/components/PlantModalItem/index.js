@@ -1,30 +1,9 @@
 import React from "react";
 import "./index.css";
-import {
-  Accordion,
-  Card,
-  Container,
-  Col,
-  Row,
-  useAccordionToggle,
-} from "react-bootstrap";
+import { Accordion, Card, Container, Col, Row, Button } from "react-bootstrap";
 
 function PlantModalItem({ data }) {
   //Accordion functionality
-
-  function CustomToggle({ children, eventKey }) {
-    const decoratedOnClick = useAccordionToggle(eventKey);
-    return (
-      <button
-        className="plantButton"
-        type="button"
-        variant="success"
-        onClick={decoratedOnClick}
-      >
-        {children}
-      </button>
-    );
-  }
 
   return (
     <>
@@ -33,7 +12,17 @@ function PlantModalItem({ data }) {
           <Accordion key={plant._id} defaultActiveKey="1">
             <Card>
               <Card.Header>
-                <CustomToggle eventKey="0"></CustomToggle>
+                <Accordion.Toggle
+                  as={Button}
+                  className="plantButton"
+                  style={{
+                    backgroundImage: `url(/plant-images/${plant.plant_name
+                      .split(" ")
+                      .join("")
+                      .toLowerCase()}.png)`,
+                  }}
+                  eventKey="0"
+                ></Accordion.Toggle>
                 <h2>{plant.plant_name}</h2>
               </Card.Header>
               <Accordion.Collapse eventKey="0">

@@ -1,11 +1,12 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import "./index.css";
 import { Link } from "react-router-dom";
 
 function OurNavbar() {
   return (
     <>
-      <Navbar bg="primary" variant="dark">
+      <Navbar variant="dark" className="custNav">
         <Navbar.Brand href="#home">Plot of Gold</Navbar.Brand>
         <Nav className="mr-auto">
           <Link className="nav-link" to="/">

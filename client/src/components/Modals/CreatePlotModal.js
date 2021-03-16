@@ -12,6 +12,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
     rows: "",
     columns: "",
     zipcode: "",
+    locations: [],
   });
   //function to set new plot state from create plot form data
   function PostPlotInputChange(event) {
@@ -22,6 +23,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     if (
       postPlot.name &&
       postPlot.rows &&
@@ -33,6 +35,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
         plot_rows: postPlot.rows,
         plot_columns: postPlot.columns,
         zipcode: postPlot.zipcode,
+        locations: postPlot.locations,
       })
         .then(() =>
           setPostPlot({

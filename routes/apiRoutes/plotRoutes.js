@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//Get Plot data for Specified user
+//Get Plot data for Specific plot
 router.get("/:id", (req, res) => {
   Plot.findOne({ _id: req.params.id })
     .populate({
@@ -38,7 +38,7 @@ router.get("/:id", (req, res) => {
         model: Plant,
       },
     })
-    .sort({ date: -1 })
+
     .then((dbPlot) => {
       res.json(dbPlot);
     })

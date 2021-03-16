@@ -17,3 +17,15 @@ table {
   height: 100%;
   width: 100%;
 }
+
+.deleteBtn {
+  border: none;
+  background-color: #6bac47;
+  color: red;
+  font-weight: bolder;
+}
+
+.dropItem {
+  background: none;
+  border: none;
+}
