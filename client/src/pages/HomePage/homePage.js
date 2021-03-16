@@ -35,6 +35,7 @@ function HomePage() {
     loadSavedPlot();
   }, []);
 
+  //PLOT FUCNTIONALITY//
   //GET: retreive plot data and set to plot state
   function loadSavedPlot() {
     API.getPlot()
@@ -49,9 +50,15 @@ function HomePage() {
       .catch((err) => console.log(err));
   }
 
+  function deletePlotEntery(id) {
+    API.deletePlot(id)
+      .then((res) => loadSavedPlot())
+      .catch((err) => console.log(err));
+  }
+
   //////////////////////////////////////////////////////////
 
-  //PLANT FUNCTIONAOLITY
+  //PLANT FUNCTIONALITY
   function loadSavedPlants() {
     API.getPlants()
       .then((res) => setPLants(res.data))
@@ -109,7 +116,11 @@ function HomePage() {
           </Col>
           <Col sm={1}></Col>
           <Col sm={6} className="text-center" id="second">
-            <PlotTable data={plot.displayedPlot} plantData={plants} />
+            <PlotTable
+              data={plot.displayedPlot}
+              plantData={plants}
+              onClick={() => deletePlotEntery(plot.displayedPlot._id)}
+            />
           </Col>
           <Col sm={3} className="text-center" id="third">
             <Dropdown>

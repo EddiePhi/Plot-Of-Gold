@@ -33,6 +33,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
         plot_rows: postPlot.rows,
         plot_columns: postPlot.columns,
         zipcode: postPlot.zipcode,
+        locations: [],
       })
         .then(() =>
           setPostPlot({

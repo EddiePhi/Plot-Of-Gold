@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import API from "../../utils/API";
 
 // import ReactHtmlParser, {
 //   processNodes,
@@ -10,7 +11,28 @@ import "./index.css";
 import TempIcon from "../../assets/lotus--v1.png";
 import { Table, Dropdown } from "react-bootstrap";
 
-function PlotTable({ data, plantData }) {
+function PlotTable({ data, plantData, onClick }) {
+  const [postLocation, setPostLocation] = useState({
+    x_y_coordinate: "",
+    plant: [],
+  });
+
+  function locationSubmit(event) {
+    event.preventDefault();
+    if (postLocation.x_y_coordinate && postLocation.plant) {
+      API.postLocation({
+        x_y_coordinate: postLocation.x_y_coordinate,
+        plant: [event.currenTarget.value()],
+      })
+        .then(() =>
+          setPostLocation({
+            x_y_coordinate: "",
+            plant: [],
+          })
+        )
+        .catch((err) => console.log(err));
+    }
+  }
   // let theader = `<table id="table" border="1">\n`;
   // let tbody = ``;
   // let tfooter = `</table>`;
@@ -28,6 +50,7 @@ function PlotTable({ data, plantData }) {
 
   // let wholeTable = theader + tbody + tfooter;
   // <div clasrsName="plot table">{ReactHtmlParser(wholeTable)}</div>;
+
   function RenderTable() {
     let rows = [];
     for (let i = 0; i < data.plot_rows; i++) {
@@ -45,10 +68,7 @@ function PlotTable({ data, plantData }) {
               <Dropdown.Menu>
                 {plantData.map((plant) => {
                   return (
-                    <Dropdown.Item
-                      key={plant._id}
-                      href="put location with plant"
-                    >
+                    <Dropdown.Item key={plant._id} onClick={locationSubmit}>
                       {plant.plant_name}
                     </Dropdown.Item>
                   );
@@ -73,7 +93,9 @@ function PlotTable({ data, plantData }) {
 
   return (
     <>
-      <h2>{data.plot_name}</h2>
+      <div>
+        <h2>{data.plot_name}</h2> <button onClick={onClick}>X</button>
+      </div>
       <RenderTable />
     </>
   );
