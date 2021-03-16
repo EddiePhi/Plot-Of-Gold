@@ -8,9 +8,9 @@ import React from "react";
 import "./index.css";
 
 import TempIcon from "../../assets/lotus--v1.png";
-import { Table } from "react-bootstrap";
+import { Table, Dropdown } from "react-bootstrap";
 
-function PlotTable({ data }) {
+function PlotTable({ data, plantData }) {
   // let theader = `<table id="table" border="1">\n`;
   // let tbody = ``;
   // let tfooter = `</table>`;
@@ -36,8 +36,25 @@ function PlotTable({ data }) {
       for (let j = 0; j < data.plot_columns; j++) {
         let cellID = `${i}-${j}`;
         cell.push(
-          <td key={cellID} id={cellID} onClick="null">
-            <img src={TempIcon} alt="tempicon"></img>
+          <td key={cellID} id={cellID} className="align-middle">
+            <Dropdown>
+              <Dropdown.Toggle size="sm" variant="success" id="dropdown-basic">
+                Plant Something!
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {plantData.map((plant) => {
+                  return (
+                    <Dropdown.Item
+                      key={plant._id}
+                      href="put location with plant"
+                    >
+                      {plant.plant_name}
+                    </Dropdown.Item>
+                  );
+                })}
+              </Dropdown.Menu>
+            </Dropdown>
           </td>
         );
       }

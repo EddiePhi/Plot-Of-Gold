@@ -109,7 +109,7 @@ function HomePage() {
           </Col>
           <Col sm={1}></Col>
           <Col sm={6} className="text-center" id="second">
-            <PlotTable data={plot.displayedPlot} />
+            <PlotTable data={plot.displayedPlot} plantData={plants} />
           </Col>
           <Col sm={3} className="text-center" id="third">
             <Dropdown>
