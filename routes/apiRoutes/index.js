@@ -13,7 +13,7 @@ const router = require("express").Router();
 router.use("/user", require("./userRoutes"));
 
 //mount plants router
-// router.use("/plants", require("./plantRoutes"));
+router.use("/plants", require("./plantRoutes"));
 
 //mount plots router
 router.use("/plot", require("./plotRoutes.js"));

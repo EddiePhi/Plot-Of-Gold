@@ -16,3 +16,19 @@ p {
 .menuButtons {
   justify-content: center;
 }
+
+.plotDropList {
+  margin: 0.625rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #first {
+    order: 1;
+  }
+  #second {
+    order: 3;
+  }
+  #third {
+    order: 2;
+  }
+}
