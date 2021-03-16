@@ -8,7 +8,7 @@ import API from "../../utils/API";
 // } from "react-html-parser";
 import "./index.css";
 
-import TempIcon from "../../assets/lotus--v1.png";
+import SeedIcon from "../../assets/icons8-seed-48.png";
 import { Table, Dropdown } from "react-bootstrap";
 
 function PlotTable({ data, plantData, onClick }) {
@@ -61,8 +61,8 @@ function PlotTable({ data, plantData, onClick }) {
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
             <Dropdown>
-              <Dropdown.Toggle size="sm" variant="success" id="dropdown-basic">
-                Plant Something!
+              <Dropdown.Toggle className="dropItem" v>
+                <img src={SeedIcon} alt="seed"></img>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -94,9 +94,12 @@ function PlotTable({ data, plantData, onClick }) {
   return (
     <>
       <div>
-        <h2>{data.plot_name}</h2> <button onClick={onClick}>X</button>
+        <h2>{data.plot_name}</h2>{" "}
+        <button className="deleteBtn" onClick={onClick}>
+          X
+        </button>
       </div>
-      <RenderTable />
+      {<RenderTable />}
     </>
   );
 }
