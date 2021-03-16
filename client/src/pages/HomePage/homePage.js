@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactDOM } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import BaseModal from "../../components/Modals/BaseModal";
@@ -22,7 +22,11 @@ function HomePage() {
   //state: plants
   const [plants, setPLants] = useState([]);
   //state: plots
-  const [plot, setPlot] = useState([]);
+  const [plot, setPlot] = useState({
+    plots: [],
+    displayedPlot: {},
+  });
+
   /////////////////////////////////////////////////////////
 
   //ON PAGE LOAD: define what data is retrieved and what states are updated
@@ -34,7 +38,14 @@ function HomePage() {
   //GET: retreive plot data and set to plot state
   function loadSavedPlot() {
     API.getPlot()
-      .then((res) => setPlot(res.data))
+      .then((res) => setPlot({ plots: res.data, displayedPlot: res.data[0] }))
+
+      .catch((err) => console.log(err));
+  }
+
+  function loadSelectedPlot(id) {
+    API.getOnePlot(id)
+      .then((res) => setPlot({ ...plot, displayedPlot: res.data }))
       .catch((err) => console.log(err));
   }
 
@@ -69,7 +80,7 @@ function HomePage() {
       />
       <Container fluid>
         <Row>
-          <Col md={2} className="my-auto text-center" id="first">
+          <Col sm={2} className="my-auto text-center" id="first">
             <Button
               className="homeButton testColor"
               variant="success"
@@ -96,20 +107,27 @@ function HomePage() {
               Add Plant
             </Button>
           </Col>
-          <Col md={1}></Col>
-          <Col md={6} className="text-center" id="third">
-            <PlotTable data={plot} />
+          <Col sm={1}></Col>
+          <Col sm={6} className="text-center" id="second">
+            <PlotTable data={plot.displayedPlot} />
           </Col>
-          <Col md={3} className="text-center" id="second">
-            <Dropdown className="plotDropList">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Dropdown Button
+          <Col sm={3} className="text-center" id="third">
+            <Dropdown>
+              <Dropdown.Toggle
+                className="plotDropList"
+                variant="success"
+                id="dropdown-basic"
+              >
+                Your Plots
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                {plot.map((plotItem) => {
+                {plot.plots.map((plotItem) => {
                   return (
-                    <Dropdown.Item key={plotItem._id} href="#/action-1">
+                    <Dropdown.Item
+                      key={plotItem._id}
+                      onClick={() => loadSelectedPlot(plotItem._id)}
+                    >
                       {plotItem.plot_name}
                     </Dropdown.Item>
                   );

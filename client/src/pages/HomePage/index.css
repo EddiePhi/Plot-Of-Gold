@@ -16,12 +16,11 @@ p {
   color: #485824;
 }
 
-.menuButtons {
-  justify-content: center;
-}
-
 .plotDropList {
   margin: 0.625rem;
+  color: #485824;
+  font-weight: bold;
+  border: 1px solid #485824;
 }
 
 @media only screen and (max-width: 768px) {

@@ -12,6 +12,10 @@ const API = {
     return axios.get("/plot");
   },
 
+  getOnePlot: function (id) {
+    return axios.get("/plot/" + id);
+  },
+
   postSignUp: function (signUpData) {
     return axios.post("/user", signUpData);
   },

@@ -7,7 +7,7 @@ import ReactHtmlParser, {
 } from "react-html-parser";
 import "./index.css";
 
-import TempIcon from "../../assets/plant-images/lotus--v1.png";
+import TempIcon from "../../assets/lotus--v1.png";
 
 function PlotTable({ data }) {
   let theader = `<table id="table" border="1">\n`;
@@ -18,7 +18,7 @@ function PlotTable({ data }) {
   for (let i = 0; i < data.rows; i++) {
     tbody += `<tr>`;
     for (let j = 0; j < data.columns; j++) {
-      tbody += `<td  data-row="${i + 1}" data-col="${j + 1}">
+      tbody += `<td   data-row="${i + 1}" data-col="${j + 1}">
                 <img src=${TempIcon} alt="tempicon"></img>
             </td>`;
     }
