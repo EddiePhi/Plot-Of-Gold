@@ -1,7 +1,9 @@
 import React from "react";
 import OurNavbar from "./components/OurNavbar";
 import "bootswatch/dist/sandstone/bootstrap.min.css";
+import "./index.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import LandingPage from "./pages/landingPage";
 import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";

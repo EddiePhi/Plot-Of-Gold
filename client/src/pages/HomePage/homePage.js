@@ -71,7 +71,7 @@ function HomePage() {
         <Row>
           <Col md={2} className="my-auto text-center" id="first">
             <Button
-              className="homeButton"
+              className="homeButton testColor"
               variant="success"
               onClick={plantShow}
             >
