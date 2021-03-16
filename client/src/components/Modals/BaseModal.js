@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";

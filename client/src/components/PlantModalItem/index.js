@@ -8,15 +8,6 @@ import {
   Row,
   useAccordionToggle,
 } from "react-bootstrap";
-import {
-  Tomato,
-  Lettuce,
-  Cucumber,
-  Pepper,
-  Dill,
-  Sage,
-  Rosemary,
-} from "../../assets/plant-images";
 
 function PlantModalItem({ data }) {
   //Accordion functionality

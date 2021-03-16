@@ -1,7 +1,7 @@
-export const Tomato = require("./Tomato.png");
-export const Lettuce = require("./Lettuce.png");
-export const Cucumber = require("./Cucumber.png");
-export const Pepper = require("./Pepper.png");
-export const Dill = require("./Dill.png");
-export const Sage = require("./Sage.png");
-export const Rosemary = require("./Rosemary.png");
+export const Tomato = require("./tomato.png");
+export const Lettuce = require("./lettuce.png");
+export const Cucumber = require("./cucumber.png");
+export const Pepper = require("./pepper.png");
+export const Dill = require("./dill.png");
+export const Sage = require("./sage.png");
+export const Rosemary = require("./rosemary.png");
