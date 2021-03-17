@@ -12,14 +12,34 @@ function CreatePlotModal({ title, close, show, onChange }) {
     rows: "",
     columns: "",
     zipcode: "",
-    locations: [],
   });
+  const [locations, setLocations] = useState({
+    x_y_coordinate: "",
+    plants: [],
+  });
+
   //function to set new plot state from create plot form data
   function PostPlotInputChange(event) {
     const { name, value } = event.target;
     setPostPlot({ ...postPlot, [name]: value });
     console.log(postPlot);
   }
+
+  // function loadLocations() {
+  //   let xy
+  //   if(postPlot.rows && postPlot.columns){
+  //     let coordinates =[]
+  //     for (let i = 0; i < postPlot.rows; i++) {
+  //        let x = i
+  //       for (let j = 0; j < postPlot.columns; j++){
+  //         let coords = `${i}-${j}`
+  //         coordinates.push(coords)
+
+  //     }}
+  //     return
+  //   }
+  //   setLocations({...locations, x_y_coordinate: coordinates})
+  // }
 
   function handleSubmit(event) {
     event.preventDefault();

@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
-
-// import ReactHtmlParser, {
-//   processNodes,
-//   convertNodeToElement,
-//   htmlparser2,
-// } from "react-html-parser";
 import "./index.css";
-
 import SeedIcon from "../../assets/icons8-seed-48.png";
 import { Table, Dropdown } from "react-bootstrap";
 
@@ -17,39 +10,15 @@ function PlotTable({ data, plantData, onClick }) {
     plant: [],
   });
 
-  function locationSubmit(event) {
-    event.preventDefault();
-    if (postLocation.x_y_coordinate && postLocation.plant) {
-      API.postLocation({
-        x_y_coordinate: postLocation.x_y_coordinate,
-        plant: [event.currenTarget.value()],
-      })
-        .then(() =>
-          setPostLocation({
-            x_y_coordinate: "",
-            plant: [],
-          })
-        )
-        .catch((err) => console.log(err));
-    }
+  function locationSubmit(plant, cellID, data) {
+    console.log(plant._id);
+    console.log(cellID);
+    console.log(data);
+    API.postLocation(data._id, {
+      x_y_coordinate: cellID,
+      plant: [plant._id],
+    }).catch((err) => console.log(err));
   }
-  // let theader = `<table id="table" border="1">\n`;
-  // let tbody = ``;
-  // let tfooter = `</table>`;
-
-  //CREATE TABLE FOR PLOT BASED ON USER INPUT (Drag and drop - jQuery UI)
-  // for (let i = 0; i < data.rows; i++) {
-  //   tbody += `<tr>`;
-  //   for (let j = 0; j < data.columns; j++) {
-  //     tbody += `<td   data-row="${i + 1}" data-col="${j + 1}">
-  //               <img src=${TempIcon} alt="tempicon"></img>
-  //           </td>`;
-  //   }
-  //   tbody += `</tr>`;
-  // }
-
-  // let wholeTable = theader + tbody + tfooter;
-  // <div clasrsName="plot table">{ReactHtmlParser(wholeTable)}</div>;
 
   function RenderTable() {
     let rows = [];
@@ -61,14 +30,17 @@ function PlotTable({ data, plantData, onClick }) {
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
             <Dropdown>
-              <Dropdown.Toggle className="dropItem" v>
+              <Dropdown.Toggle className="dropItem">
                 <img src={SeedIcon} alt="seed"></img>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
                 {plantData.map((plant) => {
                   return (
-                    <Dropdown.Item key={plant._id} onClick={locationSubmit}>
+                    <Dropdown.Item
+                      key={plant._id}
+                      onClick={() => locationSubmit(plant, cellID, data)}
+                    >
                       {plant.plant_name}
                     </Dropdown.Item>
                   );

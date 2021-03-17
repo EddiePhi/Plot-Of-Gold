@@ -21,8 +21,8 @@ const API = {
   },
 
   //Locations requests
-  postLocation: function (id) {
-    return axios.post("/location/" + id);
+  postLocation: function (id, plotData) {
+    return axios.post("/location/" + id, plotData);
   },
 
   postSignUp: function (signUpData) {
