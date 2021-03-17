@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
+import NoPlotFound from "../../components/NoPlotFound";
 import BaseModal from "../../components/Modals/BaseModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button, Dropdown } from "react-bootstrap";
@@ -55,6 +56,21 @@ function HomePage() {
     API.deletePlot(id)
       .then((res) => loadSavedPlot())
       .catch((err) => console.log(err));
+  }
+
+  function RenderPlotTable() {
+    if (plot.displayedPlot) {
+      return (
+        <PlotTable
+          data={plot.displayedPlot}
+          plantData={plants}
+          onClick={() => deletePlotEntery(plot.displayedPlot._id)}
+          reload={loadSavedPlot}
+        />
+      );
+    } else {
+      return <NoPlotFound />;
+    }
   }
 
   //////////////////////////////////////////////////////////
@@ -116,12 +132,7 @@ function HomePage() {
           </Col>
           <Col sm={1}></Col>
           <Col sm={6} className="text-center" id="second">
-            <PlotTable
-              data={plot.displayedPlot}
-              plantData={plants}
-              onClick={() => deletePlotEntery(plot.displayedPlot._id)}
-              reload={loadSavedPlot}
-            />
+            <RenderPlotTable />
           </Col>
           <Col sm={3} className="text-center" id="third">
             <Dropdown>
