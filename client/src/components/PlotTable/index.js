@@ -1,14 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 import API from "../../utils/API";
 import "./index.css";
 import SeedIcon from "../../assets/icons8-seed-48.png";
+import Soil from "../../assets/icons8-soil-48.png";
 import { Table, Dropdown } from "react-bootstrap";
+const images = require.context("../../../public/plant-images", true);
 
-function PlotTable({ data, plantData, onClick }) {
-  const [postLocation, setPostLocation] = useState({
-    x_y_coordinate: "",
-    plant: [],
-  });
+function PlotTable({ data, plantData, onClick, reload }) {
+  // useEffect(() => {
+  //   handleImg();
+  // }, []);
+
+  function handleImg(cellID) {
+    let plantImg;
+    let index = data.locations.findIndex(
+      (loc) => loc.x_y_coordinate === cellID
+    );
+    console.log(index);
+    if (index === -1) {
+      plantImg = SeedIcon;
+      return plantImg;
+    } else {
+      // let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
+      // console.log(index);
+      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
+      console.log(plantString);
+      // plantImg = images(`./${plantString}.png`);
+      plantImg = Soil;
+      return plantImg;
+    }
+  }
+
+  function handlePlantName(cellID) {
+    let name;
+    let index = data.locations.findIndex(
+      (loc) => loc.x_y_coordinate === cellID
+    );
+    if (index !== -1) {
+      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
+      console.log(plantString);
+      name = plantString;
+      return name;
+    }
+  }
 
   function locationSubmit(plant, cellID, data) {
     console.log(plant._id);
@@ -17,7 +51,9 @@ function PlotTable({ data, plantData, onClick }) {
     API.postLocation(data._id, {
       x_y_coordinate: cellID,
       plant: [plant._id],
-    }).catch((err) => console.log(err));
+    })
+      .then(() => reload())
+      .catch((err) => console.log(err));
   }
 
   function RenderTable() {
@@ -27,11 +63,13 @@ function PlotTable({ data, plantData, onClick }) {
       let cell = [];
       for (let j = 0; j < data.plot_columns; j++) {
         let cellID = `${i}-${j}`;
+
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
+            <p className="plotLabel">{handlePlantName(cellID)}</p>
             <Dropdown>
               <Dropdown.Toggle className="dropItem">
-                <img src={SeedIcon} alt="seed"></img>
+                <img src={handleImg(cellID)} alt="seed"></img>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>

@@ -38,6 +38,7 @@ function HomePage() {
   //PLOT FUCNTIONALITY//
   //GET: retreive plot data and set to plot state
   function loadSavedPlot() {
+    console.log("plot data reloaded");
     API.getPlot()
       .then((res) => setPlot({ plots: res.data, displayedPlot: res.data[0] }))
 
@@ -68,8 +69,7 @@ function HomePage() {
   //DEV ONLY
   function showData(e) {
     e.preventDefault();
-    console.log(plot);
-    console.log(plants);
+    console.log(plot.displayedPlot);
   }
 
   return (
@@ -120,6 +120,7 @@ function HomePage() {
               data={plot.displayedPlot}
               plantData={plants}
               onClick={() => deletePlotEntery(plot.displayedPlot._id)}
+              reload={loadSavedPlot}
             />
           </Col>
           <Col sm={3} className="text-center" id="third">
