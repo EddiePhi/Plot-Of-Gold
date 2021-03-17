@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import NoPlotFound from "../../components/NoPlotFound";
-import BaseModal from "../../components/Modals/BaseModal";
+import PlantiDexModal from "../../components/Modals/PlantiDexModal";
 import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button, Dropdown } from "react-bootstrap";
 import PlotTable from "../../components/PlotTable/index";
 import API from "../../utils/API";
 
 function HomePage() {
-  //plant modal state and open/close functionality
+  //////////////////STATE DEFINITIONS/////////////////////////
+
+  //PlantiDex state and open/close functionality
   const [show, setShow] = useState(false);
   const plantClose = () => setShow(false);
   const plantShow = () => setShow(true);
 
-  //create plot modal state and open/close functionality
+  //CreatePLot modal state and open/close functionality
   const [createPlot, setCreatePlot] = useState(false);
   const createPlotClose = () => setCreatePlot(false);
   const createPlotShow = () => setCreatePlot(true);
-  //STATE DEFINITIONS
+
+  //DATA STATES for Holding DB info from Axios requests//
 
   //state: plants
   const [plants, setPLants] = useState([]);
@@ -27,7 +30,6 @@ function HomePage() {
     plots: [],
     displayedPlot: {},
   });
-
   /////////////////////////////////////////////////////////
 
   //ON PAGE LOAD: define what data is retrieved and what states are updated
@@ -36,8 +38,8 @@ function HomePage() {
     loadSavedPlot();
   }, []);
 
-  //PLOT FUCNTIONALITY//
-  //GET: retreive plot data and set to plot state
+  ////////////////////PLOT FUCNTIONALITY///////////////////////
+  //GET: Retreive plot data from DB and set to plot state
   function loadSavedPlot() {
     console.log("plot data reloaded");
     API.getPlot()
@@ -45,19 +47,21 @@ function HomePage() {
 
       .catch((err) => console.log(err));
   }
-
+  //Load displayed plot data based on the plot selected from dropdown list
   function loadSelectedPlot(id) {
     API.getOnePlot(id)
       .then((res) => setPlot({ ...plot, displayedPlot: res.data }))
       .catch((err) => console.log(err));
   }
-
+  //DELETE: delete request through axios to DB to delete plot that is currently displayed
   function deletePlotEntery(id) {
     API.deletePlot(id)
-      .then((res) => loadSavedPlot())
+      .then(() => loadSavedPlot())
       .catch((err) => console.log(err));
   }
 
+  //RENDER: if there is data in plot.displayedPlot render the plot table
+  // if not then render the placeholder user instructions
   function RenderPlotTable() {
     if (plot.displayedPlot) {
       return (
@@ -73,16 +77,17 @@ function HomePage() {
     }
   }
 
-  //////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////
 
-  //PLANT FUNCTIONALITY
+  //////////////////PLANT FUNCTIONALITY//////////////////////////////
+  //GET: retrive plants from the DB and save in the plants state
   function loadSavedPlants() {
     API.getPlants()
       .then((res) => setPLants(res.data))
       .catch((err) => console.log(err));
   }
 
-  //DEV ONLY
+  //DEV ONLY: Convert the "Add Plant Button to do consolelogs delete before deploy"
   function showData(e) {
     e.preventDefault();
     console.log(plot.displayedPlot);
@@ -90,7 +95,7 @@ function HomePage() {
 
   return (
     <>
-      <BaseModal
+      <PlantiDexModal
         title="Plant-i-Dex"
         show={show}
         close={plantClose}

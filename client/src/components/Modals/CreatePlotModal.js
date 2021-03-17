@@ -13,34 +13,16 @@ function CreatePlotModal({ title, close, show, onChange }) {
     columns: "",
     zipcode: "",
   });
-  const [locations, setLocations] = useState({
-    x_y_coordinate: "",
-    plants: [],
-  });
 
-  //function to set new plot state from create plot form data
+  //function to set new plot state from create plot form inputs
   function PostPlotInputChange(event) {
     const { name, value } = event.target;
     setPostPlot({ ...postPlot, [name]: value });
     console.log(postPlot);
   }
 
-  // function loadLocations() {
-  //   let xy
-  //   if(postPlot.rows && postPlot.columns){
-  //     let coordinates =[]
-  //     for (let i = 0; i < postPlot.rows; i++) {
-  //        let x = i
-  //       for (let j = 0; j < postPlot.columns; j++){
-  //         let coords = `${i}-${j}`
-  //         coordinates.push(coords)
-
-  //     }}
-  //     return
-  //   }
-  //   setLocations({...locations, x_y_coordinate: coordinates})
-  // }
-
+  //POST: if the form data is all filled submit new plot to the DB
+  //and reset the state to helf form data
   function handleSubmit(event) {
     event.preventDefault();
 

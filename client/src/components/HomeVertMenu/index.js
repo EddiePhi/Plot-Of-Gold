@@ -2,6 +2,7 @@ import React from "react";
 import { ButtonGroup } from "react-bootstrap";
 import OurButtonProps from "../OurButtonProps/index";
 
+//Main Button menu for the /home (Plot Page)
 function HomeVertMenu({ open }) {
   return (
     <>

@@ -1,9 +1,10 @@
-import Recact from "react";
+import React from "react";
 
 function NoPlotFound() {
   return (
     <>
-      <h1>No Plots Found: Click Create Plot to get started</h1>
+      <h1>No Plots Found</h1>
+      <h3>Click "Create Plot" to get started!</h3>
     </>
   );
 }
