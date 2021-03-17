@@ -4,8 +4,8 @@ import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import PlantModalItem from "../PlantModalItem/index";
 
-function BaseModal({ title, close, show, data }) {
-  //PLant info Sub Modal state and open/close
+//Modal that shows when user selects"View Plant-I-Dex" from the Plots page
+function PlantiDexModal({ title, close, show, data }) {
   return (
     <>
       <Modal
@@ -27,4 +27,4 @@ function BaseModal({ title, close, show, data }) {
   );
 }
 
-export default BaseModal;
+export default PlantiDexModal;

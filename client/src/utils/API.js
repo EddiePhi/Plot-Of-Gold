@@ -21,10 +21,10 @@ const API = {
   },
 
   //Locations requests
-  postLocation: function (id) {
-    return axios.post("/location/" + id);
+  postLocation: function (id, plotData) {
+    return axios.post("/location/" + id, plotData);
   },
-
+  //User/Login/SignUp requests
   postSignUp: function (signUpData) {
     return axios.post("/user", signUpData);
   },
@@ -35,21 +35,6 @@ const API = {
   getPlants: function () {
     return axios.get("/plants");
   },
-
-  // getBooks: function (query) {
-  //   return axios.get(BASEURL + query + APIKEY);
-  // },
-
-  // saveBook: function (bookData) {
-  //   return axios.post("/api/books", bookData);
-  // },
-
-  // getSaved: function () {
-  //   return axios.get("/api/books");
-  // },
-  // deleteBook: function (id) {
-  //   return axios.delete("/api/books/" + id);
-  // },
 };
 
 export default API;

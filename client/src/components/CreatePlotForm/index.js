@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Col } from "react-bootstrap";
 
+//Form content for the CreatePlot Modal
 function CreatePlotForm({ text, placeHolder, onChange, value, name }) {
   return (
     <>

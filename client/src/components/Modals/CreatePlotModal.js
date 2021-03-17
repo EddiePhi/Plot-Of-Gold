@@ -12,15 +12,17 @@ function CreatePlotModal({ title, close, show, onChange }) {
     rows: "",
     columns: "",
     zipcode: "",
-    locations: [],
   });
-  //function to set new plot state from create plot form data
+
+  //function to set new plot state from create plot form inputs
   function PostPlotInputChange(event) {
     const { name, value } = event.target;
     setPostPlot({ ...postPlot, [name]: value });
     console.log(postPlot);
   }
 
+  //POST: if the form data is all filled submit new plot to the DB
+  //and reset the state to helf form data
   function handleSubmit(event) {
     event.preventDefault();
 

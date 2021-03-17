@@ -26,19 +26,19 @@ router.post("/:id", (req, res) => {
     });
 });
 
-//PUT: add a plant to a location 1:1
-router.put("/:id", (req, res) => {
-  Location.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { plant: req.body } },
-    { new: true }
-  )
-    .then((dbPlot) => {
-      res.json(dbPlot);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+// //PUT: add a plant to a location 1:1
+// router.put("/:id", (req, res) => {
+//   Location.findOneAndUpdate(
+//     { _id: req.params.id },
+//     { $push: { plant: req.body } },
+//     { new: true }
+//   )
+//     .then((dbPlot) => {
+//       res.json(dbPlot);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 module.exports = router;

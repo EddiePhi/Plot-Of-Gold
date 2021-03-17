@@ -1,55 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
 import API from "../../utils/API";
-
-// import ReactHtmlParser, {
-//   processNodes,
-//   convertNodeToElement,
-//   htmlparser2,
-// } from "react-html-parser";
 import "./index.css";
-
-import SeedIcon from "../../assets/icons8-seed-48.png";
+import SeedIcon from "../../assets/plant-images/icons8-seed-48.png";
+import Soil from "../../assets/plant-images/icons8-soil-48.png";
 import { Table, Dropdown } from "react-bootstrap";
+// const images = require.context("../../../public/plant-images", true);
 
-function PlotTable({ data, plantData, onClick }) {
-  const [postLocation, setPostLocation] = useState({
-    x_y_coordinate: "",
-    plant: [],
-  });
+//////////////////////////////////////////
+// DO NOT Delete Commented Functionality//
+//////////////////////////////////////////
 
-  function locationSubmit(event) {
-    event.preventDefault();
-    if (postLocation.x_y_coordinate && postLocation.plant) {
-      API.postLocation({
-        x_y_coordinate: postLocation.x_y_coordinate,
-        plant: [event.currenTarget.value()],
-      })
-        .then(() =>
-          setPostLocation({
-            x_y_coordinate: "",
-            plant: [],
-          })
-        )
-        .catch((err) => console.log(err));
+function PlotTable({ data, plantData, onClick, reload }) {
+  //NOT USED CURRENTLY
+  // useEffect(() => {
+  //   handleImg();
+  // }, []);
+
+  //Changes Image in each table cell depending
+  //on if a plant has been chosen for that location
+  function handleImg(cellID) {
+    let plantImg;
+    let index = data.locations.findIndex(
+      (loc) => loc.x_y_coordinate === cellID
+    );
+    console.log(index);
+    if (index === -1) {
+      plantImg = SeedIcon;
+      return plantImg;
+    } else {
+      // let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
+      // console.log(index);
+      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
+      console.log(plantString);
+      // plantImg = images(`./${plantString}.png`);
+      plantImg = Soil;
+      return plantImg;
     }
   }
-  // let theader = `<table id="table" border="1">\n`;
-  // let tbody = ``;
-  // let tfooter = `</table>`;
+  //Adds plant name above the "planted" icon in plot table cell
+  function handlePlantName(cellID) {
+    let name;
+    let index = data.locations.findIndex(
+      (loc) => loc.x_y_coordinate === cellID
+    );
+    if (index !== -1) {
+      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
+      console.log(plantString);
+      name = plantString;
+      return name;
+    }
+  }
 
-  //CREATE TABLE FOR PLOT BASED ON USER INPUT (Drag and drop - jQuery UI)
-  // for (let i = 0; i < data.rows; i++) {
-  //   tbody += `<tr>`;
-  //   for (let j = 0; j < data.columns; j++) {
-  //     tbody += `<td   data-row="${i + 1}" data-col="${j + 1}">
-  //               <img src=${TempIcon} alt="tempicon"></img>
-  //           </td>`;
-  //   }
-  //   tbody += `</tr>`;
-  // }
+  //POST: new location to the displayed Plot's locations array
+  //then reloads the plot data
+  function locationSubmit(plant, cellID, data) {
+    console.log(plant._id);
+    console.log(cellID);
+    console.log(data);
+    API.postLocation(data._id, {
+      x_y_coordinate: cellID,
+      plant: [plant._id],
+    })
+      .then(() => reload())
+      .catch((err) => console.log(err));
+  }
 
-  // let wholeTable = theader + tbody + tfooter;
-  // <div clasrsName="plot table">{ReactHtmlParser(wholeTable)}</div>;
+  //Renders the plot table
+  //Assigns a new ID for each row(<tr>) and each column(<td>)
+  //which is then combined for the CellID: format "x-y"
 
   function RenderTable() {
     let rows = [];
@@ -60,15 +78,20 @@ function PlotTable({ data, plantData, onClick }) {
         let cellID = `${i}-${j}`;
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
+            {/* Contents of each cell(<td>) */}
+            <p className="plotLabel">{handlePlantName(cellID)}</p>
             <Dropdown>
-              <Dropdown.Toggle className="dropItem" v>
-                <img src={SeedIcon} alt="seed"></img>
+              <Dropdown.Toggle className="dropItem">
+                <img src={handleImg(cellID)} alt="seed"></img>
               </Dropdown.Toggle>
-
+              {/*maps through the plantdata prop to populate the dropdown menu*/}
               <Dropdown.Menu>
                 {plantData.map((plant) => {
                   return (
-                    <Dropdown.Item key={plant._id} onClick={locationSubmit}>
+                    <Dropdown.Item
+                      key={plant._id}
+                      onClick={() => locationSubmit(plant, cellID, data)}
+                    >
                       {plant.plant_name}
                     </Dropdown.Item>
                   );
