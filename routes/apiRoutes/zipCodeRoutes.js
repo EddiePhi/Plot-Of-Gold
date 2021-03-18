@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const ZipCode = require("../../models/zipCode");
 const User = require("../../models/user.js");
+const UserAuth = require("../../models/userAuth.js");
 
 //Post ZipCode
 router.post("/user/:userID", function (req, res) {

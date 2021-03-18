@@ -1,3 +1,5 @@
+// non-auth user model (original)
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import SignupPage from "../../pages/signupPage";
+import SignupPage from "../../pages/SignupPage";
 
 function AuthForm({ onChange, email }) {
   return (
