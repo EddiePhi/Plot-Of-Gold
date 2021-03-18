@@ -105,6 +105,7 @@ function HomePage() {
         title="Enter Information Below to Create a new Plot"
         show={createPlot}
         close={createPlotClose}
+        reload={loadSavedPlot}
       />
       <Container fluid>
         <Row>
