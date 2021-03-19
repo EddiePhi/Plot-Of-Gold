@@ -10,19 +10,19 @@
 
 .homeButton:hover {
   background-color: white;
-  color:#e84a5f;
+  color: #e84a5f;
   border: 1px solid #e84a5f;
 }
 
 .homeButton:focus {
   background-color: white;
-  color:#e84a5f;
+  color: #e84a5f;
   border: 1px solid #e84a5f;
 }
 
 .homeButton:active {
   background-color: white;
-  color:#e84a5f;
+  color: #e84a5f;
   border: 1px solid #e84a5f;
 }
 
@@ -45,13 +45,13 @@ p {
 
 .plotDropList:hover {
   background-color: white;
-  color:#e84a5f;
+  color: #e84a5f;
   border: 1px solid #e84a5f;
 }
 
 .plotDropList:active {
   background-color: white;
-  color:#e84a5f;
+  color: #e84a5f;
   border: 1px solid #e84a5f;
 }
 
@@ -66,4 +66,3 @@ p {
     order: 2;
   }
 }
-
