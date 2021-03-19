@@ -23,7 +23,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
     let index = data.locations.findIndex(
       (loc) => loc.x_y_coordinate === cellID
     );
-    console.log(index);
+
     if (index === -1) {
       plantImg = SeedIcon;
       return plantImg;
@@ -31,7 +31,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
       // let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
       // console.log(index);
       let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
-      console.log(plantString);
+
       // plantImg = images(`./${plantString}.png`);
       plantImg = Soil;
       return plantImg;
@@ -44,8 +44,8 @@ function PlotTable({ data, plantData, onClick, reload }) {
       (loc) => loc.x_y_coordinate === cellID
     );
     if (index !== -1) {
-      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
-      console.log(plantString);
+      let plantString = data.locations[index].plant[0].plant_name;
+
       name = plantString;
       return name;
     }
@@ -113,7 +113,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
 
   return (
     <>
-      <div style={{marginTop: "20px"}}>
+      <div style={{ marginTop: "20px" }}>
         <h2 className="nameStyle">{data.plot_name}</h2>{" "}
         <button className="deleteBtn" onClick={onClick}>
           X

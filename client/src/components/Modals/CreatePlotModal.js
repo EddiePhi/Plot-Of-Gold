@@ -18,7 +18,6 @@ function CreatePlotModal({ title, close, show, reload }) {
   function PostPlotInputChange(event) {
     const { name, value } = event.target;
     setPostPlot({ ...postPlot, [name]: value });
-    console.log(postPlot);
   }
 
   //POST: if the form data is all filled submit new plot to the DB
@@ -69,7 +68,7 @@ function CreatePlotModal({ title, close, show, reload }) {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
-          <OurButton className="modalBtn"  value="Close" onClick={close} />
+          <OurButton className="modalBtn" value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
           <CreatePlotForm
@@ -97,7 +96,9 @@ function CreatePlotModal({ title, close, show, reload }) {
             text="Location"
             placeHolder="Enter Zip Code"
           />
-          <OurButton className="modalBtn" onClick={handleSubmit}>Submit</OurButton>
+          <OurButton className="modalBtn" onClick={handleSubmit}>
+            Submit
+          </OurButton>
         </Modal.Body>
       </Modal>
     </>

@@ -5,13 +5,13 @@ const router = require("express").Router();
 const Location = require("../../models/location");
 const Plot = require("../../models/plot");
 const Plant = require("../../models/plant");
-const User = require("../../models/user");
 
 //GET: retrieve all Plots and associated collections
 router.get("/", (req, res) => {
   Plot.find({})
     .populate({
       path: "locations",
+      options: { sort: { date: -1 } },
       model: Location,
       populate: {
         path: "plant",

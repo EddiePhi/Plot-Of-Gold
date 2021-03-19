@@ -46,6 +46,7 @@ function HomePage() {
       .then((res) => setPlot({ plots: res.data, displayedPlot: res.data[0] }))
 
       .catch((err) => console.log(err));
+    console.log(plot.displayedPlot);
   }
   //Load displayed plot data based on the plot selected from dropdown list
   function loadSelectedPlot(id) {
