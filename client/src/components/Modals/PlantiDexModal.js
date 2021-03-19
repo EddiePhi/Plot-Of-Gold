@@ -17,7 +17,7 @@ function PlantiDexModal({ title, close, show, data }) {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
-          <OurButton value="Close" onClick={close} />
+          <OurButton className="modalBtn" value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
           <PlantModalItem data={data} />

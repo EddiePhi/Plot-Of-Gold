@@ -63,7 +63,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
-          <OurButton value="Close" onClick={close} />
+          <OurButton className="modalBtn"  value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
           <CreatePlotForm
@@ -91,7 +91,7 @@ function CreatePlotModal({ title, close, show, onChange }) {
             text="Location"
             placeHolder="Enter Zip Code"
           />
-          <OurButton onClick={handleSubmit}>Submit</OurButton>
+          <OurButton className="modalBtn" onClick={handleSubmit}>Submit</OurButton>
         </Modal.Body>
       </Modal>
     </>

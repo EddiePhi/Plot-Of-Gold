@@ -6,7 +6,7 @@ function OurButtonProps({ value, onClick, className }) {
     <>
       <Button
         className={className}
-        variant="success"
+        // variant="success"
         as="input"
         type="submit"
         value={value}
