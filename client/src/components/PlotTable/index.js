@@ -54,9 +54,6 @@ function PlotTable({ data, plantData, onClick, reload }) {
   //POST: new location to the displayed Plot's locations array
   //then reloads the plot data
   function locationSubmit(plant, cellID, data) {
-    console.log(plant._id);
-    console.log(cellID);
-    console.log(data);
     API.postLocation(data._id, {
       x_y_coordinate: cellID,
       plant: [plant._id],

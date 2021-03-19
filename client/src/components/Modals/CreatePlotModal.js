@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import CreatePlotForm from "../CreatePlotForm/index";
 
-function CreatePlotModal({ title, close, show, onChange }) {
+function CreatePlotModal({ title, close, show, reload }) {
   //state for POST new plot
   const [postPlot, setPostPlot] = useState({
     name: "",
@@ -47,6 +47,12 @@ function CreatePlotModal({ title, close, show, onChange }) {
             zipcode: "",
           })
         )
+        .then(() => {
+          close();
+        })
+        .then(() => {
+          reload();
+        })
 
         .catch((err) => console.log(err));
     }
