@@ -30,7 +30,6 @@ function PlotTable({ data, plantData, onClick, reload }) {
     } else {
       // let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
       // console.log(index);
-      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
 
       // plantImg = images(`./${plantString}.png`);
       plantImg = Soil;
@@ -58,7 +57,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
       x_y_coordinate: cellID,
       plant: [plant._id],
     })
-      .then(() => reload())
+      .then(() => reload(data._id))
       .catch((err) => console.log(err));
   }
 
