@@ -1,7 +1,7 @@
 //PUT REQUEST NEEDS WORK
 
 const router = require("express").Router();
-const ZipCode = require("../../models/zipCode");
+const ZipCode = require("../../models/zipcode");
 const User = require("../../models/user.js");
 const UserAuth = require("../../models/userAuth.js");
 
