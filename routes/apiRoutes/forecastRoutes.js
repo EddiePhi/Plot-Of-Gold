@@ -2,7 +2,7 @@
 
 //Bring in express router, database models, additional dependencies
 const router = require("express").Router();
-const ZipCode = require("../../models/zipCode");
+const ZipCode = require("../../models/zipcode");
 const fetch = require("isomorphic-fetch");
 require("dotenv").config();
 
