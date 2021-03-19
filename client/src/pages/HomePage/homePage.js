@@ -112,7 +112,7 @@ function HomePage() {
           <Col sm={2} className="my-auto text-center" id="first">
             <Button
               className="homeButton testColor"
-              variant="success"
+              // variant="success"
               onClick={plantShow}
             >
               View Plant-i-Dex
@@ -120,21 +120,25 @@ function HomePage() {
 
             <Button
               className="homeButton"
-              variant="success"
+              // variant="success"
               onClick={createPlotShow}
             >
               Create Plot
             </Button>
 
-            <Button className="homeButton" variant="success">
+            {/* <Button className="homeButton" 
+            // variant="success"
+            >
               <Link to="/forum" className="text-center">
                 <p>Community Page</p>
               </Link>
-            </Button>
+            </Button> */}
 
-            <Button onClick={showData} className="homeButton" variant="success">
+            {/* <Button onClick={showData} className="homeButton" 
+            // variant="success"
+            >
               Add Plant
-            </Button>
+            </Button> */}
           </Col>
           <Col sm={1}></Col>
           <Col sm={6} className="text-center" id="second">
@@ -144,7 +148,7 @@ function HomePage() {
             <Dropdown>
               <Dropdown.Toggle
                 className="plotDropList"
-                variant="success"
+                // variant="success"
                 id="dropdown-basic"
               >
                 Your Plots

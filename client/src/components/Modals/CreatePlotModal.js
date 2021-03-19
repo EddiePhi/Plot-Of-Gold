@@ -69,7 +69,7 @@ function CreatePlotModal({ title, close, show, reload }) {
       >
         <Modal.Header>
           <Modal.Title>{title}</Modal.Title>
-          <OurButton value="Close" onClick={close} />
+          <OurButton className="modalBtn"  value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
           <CreatePlotForm
@@ -97,7 +97,7 @@ function CreatePlotModal({ title, close, show, reload }) {
             text="Location"
             placeHolder="Enter Zip Code"
           />
-          <OurButton onClick={handleSubmit}>Submit</OurButton>
+          <OurButton className="modalBtn" onClick={handleSubmit}>Submit</OurButton>
         </Modal.Body>
       </Modal>
     </>

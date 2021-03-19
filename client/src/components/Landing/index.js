@@ -8,14 +8,13 @@ class Landing extends Component {
 	render() {
 		return (
 			<div className="container col-12">
-				<div className="jumbotron jumbotron-fluid col-10 offset-1 text-center">
-					<h2>Build a React application with user authentication</h2>
-					<h5>via JWTs and passport</h5>
-				</div>
+				<div className="jumbotron jumbotron-fluid col-12 text-center">
+					<h2>Welcome to Plot of Gold!</h2>
+					<h5>Click REGISTER or LOGIN to begin.</h5>
 
-				{/* Links to Register & Login */}
-				<div className="row">
-					<div className="col-sm-10 offset-1 text-center">
+					{/* Links to Register & Login */}
+				<div className="row d-flex justify-content-center">
+					<div className="col-sm-12 text-center">
 						{/* Register */}
 						<Link to="/register" className="btn registerButton">Register</Link>
 
@@ -24,6 +23,9 @@ class Landing extends Component {
 					</div>
 				</div>
 			</div>
+				</div>
+
+				
 		);
 	}
 }

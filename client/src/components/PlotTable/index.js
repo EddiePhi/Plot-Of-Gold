@@ -113,8 +113,8 @@ function PlotTable({ data, plantData, onClick, reload }) {
 
   return (
     <>
-      <div>
-        <h2>{data.plot_name}</h2>{" "}
+      <div style={{marginTop: "20px"}}>
+        <h2 className="nameStyle">{data.plot_name}</h2>{" "}
         <button className="deleteBtn" onClick={onClick}>
           X
         </button>

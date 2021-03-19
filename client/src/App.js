@@ -6,7 +6,7 @@ import "bootswatch/dist/sandstone/bootstrap.min.css";
 import "./index.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage";
+import AboutPage from "./pages/AboutPage";
 // import LoginPage from "./pages/LoginPage";
 // import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/HomePage/homePage";
@@ -67,7 +67,7 @@ class App extends Component {
 							<Route exact path="/login" component={Login} />
 							<Switch>
 								<PrivateRoute exact path="/logout" component={Dashboard} />
-								<PrivateRoute exact path="/about" component={LandingPage} />
+								<PrivateRoute exact path="/about" component={AboutPage} />
 								<PrivateRoute exact path="/home" component={Homepage} />
 								<PrivateRoute exact path="/forum" component={ForumPage} />
 								<PrivateRoute exact path="/forumPost" component={ForumPost} />

@@ -2,9 +2,28 @@
   width: 8rem;
   height: 3rem;
   margin: 0.625rem;
-  color: #485824;
+  color: white;
+  background-color: #e84a5f;
   font-weight: bold;
   border: 1px solid #485824;
+}
+
+.homeButton:hover {
+  background-color: white;
+  color:#e84a5f;
+  border: 1px solid #e84a5f;
+}
+
+.homeButton:focus {
+  background-color: white;
+  color:#e84a5f;
+  border: 1px solid #e84a5f;
+}
+
+.homeButton:active {
+  background-color: white;
+  color:#e84a5f;
+  border: 1px solid #e84a5f;
 }
 
 .space {
@@ -13,14 +32,27 @@
 }
 
 p {
-  color: #485824;
+  color: white;
 }
 
 .plotDropList {
   margin: 0.625rem;
-  color: #485824;
+  color: white;
+  background-color: #e84a5f;
   font-weight: bold;
   border: 1px solid #485824;
+}
+
+.plotDropList:hover {
+  background-color: white;
+  color:#e84a5f;
+  border: 1px solid #e84a5f;
+}
+
+.plotDropList:active {
+  background-color: white;
+  color:#e84a5f;
+  border: 1px solid #e84a5f;
 }
 
 @media only screen and (max-width: 768px) {
@@ -34,3 +66,4 @@ p {
     order: 2;
   }
 }
+

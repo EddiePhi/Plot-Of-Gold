@@ -8,10 +8,10 @@ import mike from "../assets/profilePictures/michael.jpeg";
 import tim from "../assets/profilePictures/timothy.jpeg";
 import seedling from "../assets/landingPage/seedling.jpg";
 
-function LandingPage() {
+function AboutPage() {
   return (
     <>
-      <OurJumbotron>
+      <OurJumbotron style={{backgroundColor: "white"}}>
         <Container className="d-flex justify-content-center">
           <div className="jumbo-body jumbo-image">
             <div>
@@ -113,4 +113,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default AboutPage;

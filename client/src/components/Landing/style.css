@@ -1,15 +1,15 @@
 /* https://github.com/ksentak/react-user-auth */
 
-.jumbotron {
-	background-color: #2a363b;
+ /* .jumbotron {
+	background-color: #6bac47;
 	border: 3px solid #e84a5f;
-	margin-top: 125px;
-	color: white;
+	margin-top: 75px;
+ 	color: white;
 	font-style: italic;
-}
+}  */
 
 .registerButton {
-	background-color: #2a363b;
+	background-color: #e84a5f;
 	border: 1px solid #e84a5f;
 	color: white;
 	margin: 5px;
@@ -22,7 +22,7 @@
 }
 
 .loginButton {
-	background-color: #2a363b;
+	background-color: #e84a5f;
 	border: 1px solid #e84a5f;
 	color: white;
 	margin: 5px;
