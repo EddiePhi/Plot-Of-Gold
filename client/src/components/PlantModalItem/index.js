@@ -25,30 +25,30 @@ function PlantModalItem({ data }) {
                   }}
                   eventKey="0"
                 ></Accordion.Toggle>
-                <h2>{plant.plant_name}</h2>
+                <h2 style={{fontFamily: "'Press Start 2P', cursive", fontSize: "17px"}}>{plant.plant_name}</h2>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
                   <Container>
                     <Row>
-                      <Col>Days to Maturity:</Col>
-                      <Col>{plant.days_to_maturity}</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Days to Maturity:</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>{plant.days_to_maturity}</Col>
                     </Row>
                     <Row>
-                      <Col>Fruit Size:</Col>
-                      <Col>{plant.fruit_size_inches}"</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Fruit Size:</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>{plant.fruit_size_inches}"</Col>
                     </Row>
                     <Row>
-                      <Col>Sun Exposure:</Col>
-                      <Col>{plant.sun}</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Sun Exposure:</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>{plant.sun}</Col>
                     </Row>
                     <Row>
-                      <Col>Spread:</Col>
-                      <Col>{plant.spread}"</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Spread:</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>{plant.spread}"</Col>
                     </Row>
                     <Row>
-                      <Col>Height:</Col>
-                      <Col>{plant.height}"</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Height:</Col>
+                      <Col style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>{plant.height}"</Col>
                     </Row>
                   </Container>
                 </Card.Body>
