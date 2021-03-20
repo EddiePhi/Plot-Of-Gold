@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom'
 import OurJumbotron from "../components/OurJumbotron";
 import DevImg from "../components/DevImg";
 import david from "../assets/profilePictures/david.jpeg";
@@ -16,8 +17,8 @@ function AboutPage() {
         <Container className="d-flex justify-content-center">
           <div className="jumbo-body jumbo-image">
             <div>
-              <h1  style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Plot of Gold</h1>
-              <h3 style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>A Gardening App</h3>
+              <h1  style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive", color:"#485824"}}>Plot of Gold</h1>
+              <h3 style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive", color:"#485824"}}>A Gardening App</h3>
             </div>
           </div>
         </Container>
@@ -56,10 +57,10 @@ function AboutPage() {
       </div>
       <OurJumbotron>
         <Container className="d-flex justify-content-center">
-          <p style={{color: "black", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Why?</p>
+          <p style={{color: "#485824", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Why?</p>
         </Container>
         <Container className="d-flex justify-content-center">
-          <p style={{color: "black", fontFamily: "'Press Start 2P', cursive"}}>
+          <p style={{color: "#485824", fontFamily: "'Press Start 2P', cursive"}}>
             With all the uncertainty in the world, it's nice to know where our
             food comes from and what's included. Plot of Gold keeps what we eat
             from being a mystery.
@@ -86,7 +87,7 @@ function AboutPage() {
       </div>
       <OurJumbotron style={{padding: "32px"}}>
         <Container className="d-flex justify-content-center">
-          <p style={{color: "black", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Say Hi to our Dev Team!</p>
+          <p style={{color: "#485824", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Say Hi to our Dev Team!</p>
         </Container>
         <Container style={{marginTop: "15px"}} className="d-flex justify-content-center">
           <Row >
@@ -107,7 +108,9 @@ function AboutPage() {
       </OurJumbotron>
       <div style={{margin: "60px"}}>
         <Container className="d-flex justify-content-center">
-          <Button className="btn-success mb-3" style={{height: "45px", fontSize: "30px", fontFamily: "'Press Start 2P', cursive"}}>Start</Button>
+          <Button className="btn-success mb-3" style={{height: "45px", fontSize: "30px", fontFamily: "'Press Start 2P', cursive"}}>
+            <Link to="/home"><p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "30px", marginTop: "6px"}}>Start</p></Link>
+          </Button>
         </Container>
       </div>
     </>
