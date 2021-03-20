@@ -20,6 +20,10 @@ const locationSchema = new Schema({
     type: String,
     require: "must have coresponding plot coordinate",
   },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 
   plant: [{ type: Schema.Types.ObjectId, ref: "Plant" }],
 });

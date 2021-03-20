@@ -4,7 +4,7 @@ import "./index.css";
 import SeedIcon from "../../assets/plant-images/icons8-seed-48.png";
 import Soil from "../../assets/plant-images/icons8-soil-48.png";
 import { Table, Dropdown } from "react-bootstrap";
-// const images = require.context("../../../public/plant-images", true);
+const images = require.context("../../../public/plant-images", true);
 
 //////////////////////////////////////////
 // DO NOT Delete Commented Functionality//
@@ -23,17 +23,16 @@ function PlotTable({ data, plantData, onClick, reload }) {
     let index = data.locations.findIndex(
       (loc) => loc.x_y_coordinate === cellID
     );
-    console.log(index);
     if (index === -1) {
       plantImg = SeedIcon;
       return plantImg;
     } else {
-      // let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
-      // console.log(index);
+      let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
+      console.log(index);
       let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
-      console.log(plantString);
-      // plantImg = images(`./${plantString}.png`);
-      plantImg = Soil;
+
+      plantImg = images(`./${plantString}.png`).default;
+
       return plantImg;
     }
   }
@@ -44,8 +43,8 @@ function PlotTable({ data, plantData, onClick, reload }) {
       (loc) => loc.x_y_coordinate === cellID
     );
     if (index !== -1) {
-      let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
-      console.log(plantString);
+      let plantString = data.locations[index].plant[0].plant_name;
+
       name = plantString;
       return name;
     }
@@ -58,7 +57,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
       x_y_coordinate: cellID,
       plant: [plant._id],
     })
-      .then(() => reload())
+      .then(() => reload(data._id))
       .catch((err) => console.log(err));
   }
 
@@ -79,7 +78,11 @@ function PlotTable({ data, plantData, onClick, reload }) {
             <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}} className="plotLabel">{handlePlantName(cellID)}</p>
             <Dropdown>
               <Dropdown.Toggle className="dropItem">
-                <img src={handleImg(cellID)} alt="seed"></img>
+                <img
+                  src={handleImg(cellID)}
+                  className="plantImg"
+                  alt="seed"
+                ></img>
               </Dropdown.Toggle>
               {/*maps through the plantdata prop to populate the dropdown menu*/}
               <Dropdown.Menu>

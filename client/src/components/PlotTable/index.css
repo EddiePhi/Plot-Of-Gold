@@ -39,3 +39,9 @@ table {
 .nameStyle {
   color: white;
 }
+
+.plantImg {
+  height: 48px;
+  width: 48px;
+  border-radius: 1em;
+}
