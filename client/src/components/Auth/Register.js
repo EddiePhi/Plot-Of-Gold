@@ -57,15 +57,24 @@ class Register extends Component {
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="col-sm-3 returnHome">
-						<Link to="/" className="link"><i className="fas fa-backspace"></i> Return Home</Link>
+					<div className="col returnHome">
+						<Link to="/" className="link">
+							<div className="row">
+								<div style={{paddingRight: "5px"}} className="col-1 float-right">
+									<i className="fas fa-backspace float-right"></i>
+								</div>
+								<div style={{padding: "0px"}} className="col-3">
+									<p className="textLink" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Return Home</p>
+								</div>
+							</div>
+						</Link>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-10 offset-1 text-center registerText">
-						<h3>Register to become a new user</h3>
-						<p>Already have an account? <Link to="/login" className="link">Log In</Link></p>
+						<h3 style={{fontFamily: "'Press Start 2P', cursive"}}>Register to become a new user</h3>
+						<p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "13px"}}>Already have an account? <Link to="/login" className="link"><p className="textLink" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "13px"}}>Click here to log in</p></Link></p>
 					</div>
 				</div>
 
@@ -74,9 +83,10 @@ class Register extends Component {
 						<form noValidate onSubmit={this.onSubmit}>
 							{/* Name */}
 							<div className="col-8 offset-2">
-								<label htmlFor="name">Name:</label>
+								<label htmlFor="name" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Name:</label>
 								<span className="text-light">{errors.name}</span>
 								<input
+									style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
 									type="text"
 									onChange={this.onChange}
 									value={this.state.name}
@@ -89,9 +99,10 @@ class Register extends Component {
 
 							{/* Email */}
 							<div className="col-8 offset-2">
-								<label htmlFor="email">Email:</label>
+								<label htmlFor="email" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Email:</label>
 								<span className="text-light">{errors.email}</span>
 								<input
+									style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
 									type="email"
 									onChange={this.onChange}
 									value={this.state.email}
@@ -104,9 +115,10 @@ class Register extends Component {
 
 							{/* Password */}
 							<div className="col-8 offset-2">
-								<label htmlFor="password">Password:</label>
+								<label htmlFor="password" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Password:</label>
 								<span className="text-light">{errors.password}</span>
 								<input
+									style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
 									type="password"
 									onChange={this.onChange}
 									value={this.state.password}
@@ -119,9 +131,10 @@ class Register extends Component {
 
 							{/* Validate password */}
 							<div className="col-8 offset-2">
-								<label htmlFor="password2">Confirm Password:</label>
+								<label htmlFor="password2" style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>Confirm Password:</label>
 								<span className="text-light">{errors.password2}</span>
 								<input
+									style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
 									type="password"
 									onChange={this.onChange}
 									value={this.state.password2}
@@ -134,7 +147,7 @@ class Register extends Component {
 
 							{/* Submit button */}
 							<div className="col-8 offset-2">
-								<button className="btn signupbtn" type="submit">
+								<button style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}} className="btn signupbtn" type="submit">
 									Sign up
 			 	  				</button>
 							</div>
