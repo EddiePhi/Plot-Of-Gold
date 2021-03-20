@@ -5,7 +5,7 @@ function DevImg({src}) {
   return (
     <>
         <Col>
-            <img src={src} style={{height: "100px"}} alt="bee"/>
+            <img className="d-flex mx-auto" src={src} style={{height: "100px"}} alt="bee"/>
         </Col>
     </>
   );

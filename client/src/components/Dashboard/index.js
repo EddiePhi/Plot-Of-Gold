@@ -19,7 +19,7 @@ class Dashboard extends Component {
 				<div className="row">
 					<div className="col-sm-12 text-center dashboardText">
 						{/* <h3>Hey there, {user.name.split(" ")[0]}!</h3> */}
-						<h3 style={{fontFamily: "'Press Start 2P', cursive", fontSize: "15px"}}>Click below to logout.</h3>
+						<h3 style={{fontFamily: "'Press Start 2P', cursive", fontSize: "15px"}}>Click below to logout</h3>
 						<button onClick={this.onLogoutClick} className="btn logoutbtn" style={{marginTop: "10px"}}><p style={{fontFamily: "'Press Start 2P', cursive", margin: "0px"}}>Logout</p></button>
 					</div>
 				</div>
