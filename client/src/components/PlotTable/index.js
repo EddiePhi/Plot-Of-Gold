@@ -76,7 +76,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
             {/* Contents of each cell(<td>) */}
-            <p className="plotLabel">{handlePlantName(cellID)}</p>
+            <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}} className="plotLabel">{handlePlantName(cellID)}</p>
             <Dropdown>
               <Dropdown.Toggle className="dropItem">
                 <img src={handleImg(cellID)} alt="seed"></img>
@@ -86,6 +86,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
                 {plantData.map((plant) => {
                   return (
                     <Dropdown.Item
+                      style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
                       key={plant._id}
                       onClick={() => locationSubmit(plant, cellID, data)}
                     >
@@ -114,9 +115,9 @@ function PlotTable({ data, plantData, onClick, reload }) {
   return (
     <>
       <div style={{marginTop: "20px"}}>
-        <h2 className="nameStyle">{data.plot_name}</h2>{" "}
+        <h2 style={{fontFamily: "'Press Start 2P', cursive", fontSize: "20px"}} className="nameStyle">{data.plot_name}</h2>{" "}
         <button className="deleteBtn" onClick={onClick}>
-          X
+          <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", color: "red"}}>X</p>
         </button>
       </div>
       {<RenderTable />}

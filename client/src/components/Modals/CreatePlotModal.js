@@ -68,7 +68,7 @@ function CreatePlotModal({ title, close, show, reload }) {
         centered
       >
         <Modal.Header>
-          <Modal.Title>{title}</Modal.Title>
+          <Modal.Title style={{fontFamily: "'Press Start 2P', cursive", fontSize: "12px"}}>{title}</Modal.Title>
           <OurButton className="modalBtn"  value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
@@ -94,7 +94,7 @@ function CreatePlotModal({ title, close, show, reload }) {
             name="zipcode"
             onChange={PostPlotInputChange}
             value={postPlot.zipcode}
-            text="Location"
+            text="Zip Code"
             placeHolder="Enter Zip Code"
           />
           <OurButton className="modalBtn" onClick={handleSubmit}>Submit</OurButton>

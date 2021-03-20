@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Col } from "react-bootstrap";
+import "./style.css"
 
 //Form content for the CreatePlot Modal
 function CreatePlotForm({ text, placeHolder, onChange, value, name }) {
@@ -7,11 +8,11 @@ function CreatePlotForm({ text, placeHolder, onChange, value, name }) {
     <>
       <Form.Group>
         <Form.Row>
-          <Form.Label column lg={2}>
+          <Form.Label column lg={2} style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}>
             {text}
           </Form.Label>
           <Col>
-            <Form.Control
+            <Form.Control style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
               name={name}
               type="text"
               placeholder={placeHolder}

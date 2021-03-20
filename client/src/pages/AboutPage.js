@@ -7,31 +7,32 @@ import eddie from "../assets/profilePictures/eddie.jpg";
 import mike from "../assets/profilePictures/michael.jpeg";
 import tim from "../assets/profilePictures/timothy.jpeg";
 import seedling from "../assets/landingPage/seedling.jpg";
+import "./pages.css"
 
 function AboutPage() {
   return (
     <>
-      <OurJumbotron style={{backgroundColor: "white"}}>
+      <OurJumbotron>
         <Container className="d-flex justify-content-center">
           <div className="jumbo-body jumbo-image">
             <div>
-              <h1>Plot of Gold</h1>
-              <h2>A Gardening App</h2>
+              <h1  style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Plot of Gold</h1>
+              <h3 style={{fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>A Gardening App</h3>
             </div>
           </div>
         </Container>
       </OurJumbotron>
-      <div className="mb-3">
+      <div style={{margin: "60px"}}>
         <Row>
           <Col lg={8} className="d-flex justify-content-center">
             <Container>
               <div>
-                <p className="d-flex justify-content-center">
+                <p style={{fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}className="d-flex justify-content-center">
                   What is Plot of Gold?
                 </p>
               </div>
               <div>
-                <p>
+                <p style={{fontFamily: "'Press Start 2P', cursive"}}>
                   It's an app for all of your gardening needs! If you have the
                   space, we have you covered. Plot of Gold is perfect for
                   maintaining both indoor and outdoor gardens. It has all the
@@ -47,7 +48,7 @@ function AboutPage() {
           <Col lg={4} className="d-flex justify-content-center">
             <img
               src={seedling}
-              style={{ height: "200px" }}
+              style={{ height: "275px" }}
               alt="Seedling"
             ></img>
           </Col>
@@ -55,40 +56,40 @@ function AboutPage() {
       </div>
       <OurJumbotron>
         <Container className="d-flex justify-content-center">
-          <p>Why?</p>
+          <p style={{color: "black", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Why?</p>
         </Container>
         <Container className="d-flex justify-content-center">
-          <p>
+          <p style={{color: "black", fontFamily: "'Press Start 2P', cursive"}}>
             With all the uncertainty in the world, it's nice to know where our
             food comes from and what's included. Plot of Gold keeps what we eat
             from being a mystery.
           </p>
         </Container>
       </OurJumbotron>
-      <div className="mb-3">
+      <div style={{margin: "60px"}}>
         <Container className="d-flex justify-content-center">
-          <p>Designed to help new and experienced gardeners!</p>
+          <p style={{fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Designed to help new and experienced gardeners!</p>
         </Container>
         <Container className="d-flex justify-content-center">
           <Row>
             <Col>
-              <p>Learn</p>
+              <p style={{fontFamily: "'Press Start 2P', cursive"}}>Learn</p>
             </Col>
             <Col>
-              <p>Grow</p>
+              <p style={{fontFamily: "'Press Start 2P', cursive"}}>Grow</p>
             </Col>
             <Col>
-              <p>Connect</p>
+              <p style={{fontFamily: "'Press Start 2P', cursive"}}>Connect</p>
             </Col>
           </Row>
         </Container>
       </div>
-      <OurJumbotron>
+      <OurJumbotron style={{padding: "32px"}}>
         <Container className="d-flex justify-content-center">
-          <p>Say Hi to our Dev Team!</p>
+          <p style={{color: "black", fontSize: "25px", fontStyle: "italic", fontFamily: "'Press Start 2P', cursive"}}>Say Hi to our Dev Team!</p>
         </Container>
-        <Container className="d-flex justify-content-center">
-          <Row>
+        <Container style={{marginTop: "15px"}} className="d-flex justify-content-center">
+          <Row >
             <Col>
               <DevImg src={david} />
             </Col>
@@ -104,9 +105,9 @@ function AboutPage() {
           </Row>
         </Container>
       </OurJumbotron>
-      <div className="mb-3">
+      <div style={{margin: "60px"}}>
         <Container className="d-flex justify-content-center">
-          <Button className="btn-success mb-3">Start</Button>
+          <Button className="btn-success mb-3" style={{height: "45px", fontSize: "30px", fontFamily: "'Press Start 2P', cursive"}}>Start</Button>
         </Container>
       </div>
     </>

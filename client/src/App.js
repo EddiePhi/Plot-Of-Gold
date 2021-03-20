@@ -10,9 +10,9 @@ import AboutPage from "./pages/AboutPage";
 // import LoginPage from "./pages/LoginPage";
 // import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/HomePage/homePage";
-import ForumPage from "./pages/ForumPage";
-import ForumPost from "./pages/ForumPost";
-import ForumCreate from "./pages/ForumCreate";
+// import ForumPage from "./pages/ForumPage";
+// import ForumPost from "./pages/ForumPost";
+// import ForumCreate from "./pages/ForumCreate";
 
 // Auth Template
 import jwt_decode from "jwt-decode";
@@ -69,9 +69,9 @@ class App extends Component {
 								<PrivateRoute exact path="/logout" component={Dashboard} />
 								<PrivateRoute exact path="/about" component={AboutPage} />
 								<PrivateRoute exact path="/home" component={Homepage} />
-								<PrivateRoute exact path="/forum" component={ForumPage} />
+								{/* <PrivateRoute exact path="/forum" component={ForumPage} />
 								<PrivateRoute exact path="/forumPost" component={ForumPost} />
-								<PrivateRoute exact path="/forumCreate" component={ForumCreate} />
+								<PrivateRoute exact path="/forumCreate" component={ForumCreate} /> */}
 							</Switch>
 						</div>
 					

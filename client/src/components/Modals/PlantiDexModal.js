@@ -16,8 +16,8 @@ function PlantiDexModal({ title, close, show, data }) {
         centered
       >
         <Modal.Header>
-          <Modal.Title>{title}</Modal.Title>
-          <OurButton className="modalBtn" value="Close" onClick={close} />
+          <Modal.Title style={{fontFamily: "'Press Start 2P', cursive"}}>{title}</Modal.Title>
+          <OurButton className="modalBtn" value="Close" onClick={close}/>
         </Modal.Header>
         <Modal.Body>
           <PlantModalItem data={data} />
