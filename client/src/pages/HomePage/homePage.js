@@ -73,7 +73,7 @@ function HomePage() {
         />
       );
     } else {
-      return <NoPlotFound />;
+      return <NoPlotFound/>;
     }
   }
 
@@ -102,7 +102,7 @@ function HomePage() {
         data={plants}
       />
       <CreatePlotModal
-        title="Enter Information Below to Create a new Plot"
+        title="Enter Information Below to Create a New Plot"
         show={createPlot}
         close={createPlotClose}
         reload={loadSavedPlot}
@@ -115,7 +115,7 @@ function HomePage() {
               // variant="success"
               onClick={plantShow}
             >
-              View Plant-i-Dex
+              <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px"}}>View Plant-i-Dex</p>
             </Button>
 
             <Button
@@ -123,7 +123,7 @@ function HomePage() {
               // variant="success"
               onClick={createPlotShow}
             >
-              Create Plot
+              <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px"}}>Create Plot</p>
             </Button>
 
             {/* <Button className="homeButton" 
@@ -151,13 +151,14 @@ function HomePage() {
                 // variant="success"
                 id="dropdown-basic"
               >
-                Your Plots
+                <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px", marginBottom: "0px"}}>Your Plots</p>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
                 {plot.plots.map((plotItem) => {
                   return (
                     <Dropdown.Item
+                      style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
                       key={plotItem._id}
                       onClick={() => loadSelectedPlot(plotItem._id)}
                     >
