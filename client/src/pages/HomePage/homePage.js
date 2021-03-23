@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./index.css";
 import NoPlotFound from "../../components/NoPlotFound";
 import PlantiDexModal from "../../components/Modals/PlantiDexModal";
@@ -7,6 +6,7 @@ import CreatePlotModal from "../../components/Modals/CreatePlotModal";
 import { Col, Row, Container, Button, Dropdown } from "react-bootstrap";
 import PlotTable from "../../components/PlotTable/index";
 import API from "../../utils/API";
+import jwtDecode from "jwt-decode";
 
 function HomePage() {
   //////////////////STATE DEFINITIONS/////////////////////////
@@ -42,8 +42,13 @@ function HomePage() {
   //GET: Retreive plot data from DB and set to plot state
   function loadSavedPlot() {
     console.log("plot data reloaded");
-    API.getPlot()
-      .then((res) => setPlot({ plots: res.data, displayedPlot: res.data[0] }))
+    const token = localStorage.getItem("jwtToken");
+    const data = jwtDecode(token);
+    console.log(data);
+    API.getUser(data.id)
+      .then((res) =>
+        setPlot({ plots: res.data.plots, displayedPlot: res.data.plots[0] })
+      )
 
       .catch((err) => console.log(err));
   }
@@ -73,7 +78,7 @@ function HomePage() {
         />
       );
     } else {
-      return <NoPlotFound/>;
+      return <NoPlotFound />;
     }
   }
 
@@ -115,7 +120,15 @@ function HomePage() {
               // variant="success"
               onClick={plantShow}
             >
-              <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px"}}>View Plant-i-Dex</p>
+              <p
+                style={{
+                  fontFamily: "'Press Start 2P', cursive",
+                  fontSize: "10px",
+                  marginTop: "5px",
+                }}
+              >
+                View Plant-i-Dex
+              </p>
             </Button>
 
             <Button
@@ -123,7 +136,15 @@ function HomePage() {
               // variant="success"
               onClick={createPlotShow}
             >
-              <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px"}}>Create Plot</p>
+              <p
+                style={{
+                  fontFamily: "'Press Start 2P', cursive",
+                  fontSize: "10px",
+                  marginTop: "5px",
+                }}
+              >
+                Create Plot
+              </p>
             </Button>
 
             {/* <Button className="homeButton" 
@@ -151,14 +172,26 @@ function HomePage() {
                 // variant="success"
                 id="dropdown-basic"
               >
-                <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", marginTop: "5px", marginBottom: "0px"}}>Your Plots</p>
+                <p
+                  style={{
+                    fontFamily: "'Press Start 2P', cursive",
+                    fontSize: "10px",
+                    marginTop: "5px",
+                    marginBottom: "0px",
+                  }}
+                >
+                  Your Plots
+                </p>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
                 {plot.plots.map((plotItem) => {
                   return (
                     <Dropdown.Item
-                      style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
+                      style={{
+                        fontFamily: "'Press Start 2P', cursive",
+                        fontSize: "10px",
+                      }}
                       key={plotItem._id}
                       onClick={() => loadSelectedPlot(plotItem._id)}
                     >

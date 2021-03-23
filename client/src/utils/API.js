@@ -6,8 +6,8 @@ import axios from "axios";
 
 const API = {
   //Plot Requests
-  postNewPlot: function (plotData) {
-    return axios.post("/plot", plotData);
+  postNewPlot: function (id, plotData) {
+    return axios.post("/plot/" + id, plotData);
   },
   getPlot: function () {
     return axios.get("/plot");
@@ -28,8 +28,8 @@ const API = {
   postSignUp: function (signUpData) {
     return axios.post("/user", signUpData);
   },
-  getUser: function () {
-    return axios.get("/user");
+  getUser: function (id) {
+    return axios.get("/user/" + id);
   },
   //Plant data requests
   getPlants: function () {

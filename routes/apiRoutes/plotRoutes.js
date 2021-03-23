@@ -5,6 +5,7 @@ const router = require("express").Router();
 const Location = require("../../models/location");
 const Plot = require("../../models/plot");
 const Plant = require("../../models/plant");
+const UserAuth = require("../../models/userAuth");
 
 //GET: retrieve all Plots and associated collections
 router.get("/", (req, res) => {
@@ -60,26 +61,26 @@ router.post("/", (req, res) => {
     });
 });
 
-//POST: User creates new plot
-// router.post("/:id", (req, res) => {
-//   Plot.create(req.body)
-//     .then((plot) => {
-//       console.log(plot);
-//       User.findOneAndUpdate(
-//         { _id: req.params.id },
-//         { $push: { plots: plot._id } },
-//         { new: true }
-//       )
-//         .then()
-//         .catch((err) => res.json(err));
-//     })
-//     .then((dbPlot) => {
-//       res.json(dbPlot);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
+// POST: User creates new plot
+router.post("/:id", (req, res) => {
+  Plot.create(req.body)
+    .then((plot) => {
+      console.log(plot);
+      UserAuth.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { plots: plot._id } },
+        { new: true }
+      )
+        .then()
+        .catch((err) => res.json(err));
+    })
+    .then((dbPlot) => {
+      res.json(dbPlot);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 //DELETE: Remove specified plot
 router.delete("/:id", function (req, res) {
