@@ -1,3 +1,5 @@
+// moved from routes folder
+
 const path = require("path");
 const router = require("express").Router();
 
