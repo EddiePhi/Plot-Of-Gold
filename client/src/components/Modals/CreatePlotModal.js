@@ -4,6 +4,7 @@ import "./index.css";
 import { Modal } from "react-bootstrap";
 import OurButton from "../OurButtonProps";
 import CreatePlotForm from "../CreatePlotForm/index";
+import jwtDecode from "jwt-decode";
 
 function CreatePlotModal({ title, close, show, reload }) {
   //state for POST new plot
@@ -24,6 +25,8 @@ function CreatePlotModal({ title, close, show, reload }) {
   //and reset the state to helf form data
   function handleSubmit(event) {
     event.preventDefault();
+    const token = localStorage.getItem("jwtToken");
+    const data = jwtDecode(token);
 
     if (
       postPlot.name &&
@@ -31,7 +34,7 @@ function CreatePlotModal({ title, close, show, reload }) {
       postPlot.columns &&
       postPlot.zipcode
     ) {
-      API.postNewPlot({
+      API.postNewPlot(data.id, {
         plot_name: postPlot.name,
         plot_rows: postPlot.rows,
         plot_columns: postPlot.columns,
@@ -67,8 +70,15 @@ function CreatePlotModal({ title, close, show, reload }) {
         centered
       >
         <Modal.Header>
-          <Modal.Title style={{fontFamily: "'Press Start 2P', cursive", fontSize: "12px"}}>{title}</Modal.Title>
-          <OurButton className="modalBtn"  value="Close" onClick={close} />
+          <Modal.Title
+            style={{
+              fontFamily: "'Press Start 2P', cursive",
+              fontSize: "12px",
+            }}
+          >
+            {title}
+          </Modal.Title>
+          <OurButton className="modalBtn" value="Close" onClick={close} />
         </Modal.Header>
         <Modal.Body>
           <CreatePlotForm
