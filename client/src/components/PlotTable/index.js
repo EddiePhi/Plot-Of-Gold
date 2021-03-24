@@ -2,7 +2,7 @@ import React from "react";
 import API from "../../utils/API";
 import "./index.css";
 import SeedIcon from "../../assets/plant-images/icons8-seed-48.png";
-import Soil from "../../assets/plant-images/icons8-soil-48.png";
+
 import { Table, Dropdown } from "react-bootstrap";
 const images = require.context("../../../public/plant-images", true);
 
@@ -28,7 +28,7 @@ function PlotTable({ data, plantData, onClick, reload }) {
       return plantImg;
     } else {
       let index = data.locations.findIndex((i) => i.x_y_coordinate === cellID);
-      console.log(index);
+
       let plantString = data.locations[index].plant[0].plant_name.toLowerCase();
 
       plantImg = images(`./${plantString}.png`).default;
@@ -75,7 +75,15 @@ function PlotTable({ data, plantData, onClick, reload }) {
         cell.push(
           <td key={cellID} id={cellID} className="align-middle">
             {/* Contents of each cell(<td>) */}
-            <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}} className="plotLabel">{handlePlantName(cellID)}</p>
+            <p
+              style={{
+                fontFamily: "'Press Start 2P', cursive",
+                fontSize: "10px",
+              }}
+              className="plotLabel"
+            >
+              {handlePlantName(cellID)}
+            </p>
             <Dropdown>
               <Dropdown.Toggle className="dropItem">
                 <img
@@ -89,7 +97,10 @@ function PlotTable({ data, plantData, onClick, reload }) {
                 {plantData.map((plant) => {
                   return (
                     <Dropdown.Item
-                      style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px"}}
+                      style={{
+                        fontFamily: "'Press Start 2P', cursive",
+                        fontSize: "10px",
+                      }}
                       key={plant._id}
                       onClick={() => locationSubmit(plant, cellID, data)}
                     >
@@ -117,10 +128,23 @@ function PlotTable({ data, plantData, onClick, reload }) {
 
   return (
     <>
-      <div style={{marginTop: "20px"}}>
-        <h2 style={{fontFamily: "'Press Start 2P', cursive", fontSize: "20px"}} className="nameStyle">{data.plot_name}</h2>{" "}
+      <div style={{ marginTop: "20px" }}>
+        <h2
+          style={{ fontFamily: "'Press Start 2P', cursive", fontSize: "20px" }}
+          className="nameStyle"
+        >
+          {data.plot_name}
+        </h2>{" "}
         <button className="deleteBtn" onClick={onClick}>
-          <p style={{fontFamily: "'Press Start 2P', cursive", fontSize: "10px", color: "red"}}>X</p>
+          <p
+            style={{
+              fontFamily: "'Press Start 2P', cursive",
+              fontSize: "10px",
+              color: "red",
+            }}
+          >
+            X
+          </p>
         </button>
       </div>
       {<RenderTable />}

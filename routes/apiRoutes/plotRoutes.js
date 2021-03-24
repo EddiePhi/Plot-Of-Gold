@@ -33,13 +33,13 @@ router.get("/:id", (req, res) => {
   Plot.findOne({ _id: req.params.id })
     .populate({
       path: "locations",
+      options: { sort: { date: -1 } },
       model: Location,
       populate: {
         path: "plant",
         model: Plant,
       },
     })
-
     .then((dbPlot) => {
       res.json(dbPlot);
     })

@@ -41,10 +41,9 @@ function HomePage() {
   ////////////////////PLOT FUCNTIONALITY///////////////////////
   //GET: Retreive plot data from DB and set to plot state
   function loadSavedPlot() {
-    console.log("plot data reloaded");
     const token = localStorage.getItem("jwtToken");
     const data = jwtDecode(token);
-    console.log(data);
+
     API.getUser(data.id)
       .then((res) =>
         setPlot({ plots: res.data.plots, displayedPlot: res.data.plots[0] })
@@ -56,6 +55,7 @@ function HomePage() {
   function loadSelectedPlot(id) {
     API.getOnePlot(id)
       .then((res) => setPlot({ ...plot, displayedPlot: res.data }))
+      .then(console.log(plot.displayedPlot))
       .catch((err) => console.log(err));
   }
   //DELETE: delete request through axios to DB to delete plot that is currently displayed
@@ -74,7 +74,7 @@ function HomePage() {
           data={plot.displayedPlot}
           plantData={plants}
           onClick={() => deletePlotEntery(plot.displayedPlot._id)}
-          reload={loadSavedPlot}
+          reload={loadSelectedPlot}
         />
       );
     } else {
@@ -90,12 +90,6 @@ function HomePage() {
     API.getPlants()
       .then((res) => setPLants(res.data))
       .catch((err) => console.log(err));
-  }
-
-  //DEV ONLY: Convert the "Add Plant Button to do consolelogs delete before deploy"
-  function showData(e) {
-    e.preventDefault();
-    console.log(plot.displayedPlot);
   }
 
   return (
@@ -115,11 +109,7 @@ function HomePage() {
       <Container fluid>
         <Row>
           <Col sm={2} className="my-auto text-center" id="first">
-            <Button
-              className="homeButton testColor"
-              // variant="success"
-              onClick={plantShow}
-            >
+            <Button className="homeButton testColor" onClick={plantShow}>
               <p
                 style={{
                   fontFamily: "'Press Start 2P', cursive",
@@ -131,11 +121,7 @@ function HomePage() {
               </p>
             </Button>
 
-            <Button
-              className="homeButton"
-              // variant="success"
-              onClick={createPlotShow}
-            >
+            <Button className="homeButton" onClick={createPlotShow}>
               <p
                 style={{
                   fontFamily: "'Press Start 2P', cursive",
@@ -146,20 +132,6 @@ function HomePage() {
                 Create Plot
               </p>
             </Button>
-
-            {/* <Button className="homeButton" 
-            // variant="success"
-            >
-              <Link to="/forum" className="text-center">
-                <p>Community Page</p>
-              </Link>
-            </Button> */}
-
-            {/* <Button onClick={showData} className="homeButton" 
-            // variant="success"
-            >
-              Add Plant
-            </Button> */}
           </Col>
           <Col sm={1}></Col>
           <Col sm={6} className="text-center" id="second">
@@ -167,11 +139,7 @@ function HomePage() {
           </Col>
           <Col sm={3} className="text-center" id="third">
             <Dropdown>
-              <Dropdown.Toggle
-                className="plotDropList"
-                // variant="success"
-                id="dropdown-basic"
-              >
+              <Dropdown.Toggle className="plotDropList" id="dropdown-basic">
                 <p
                   style={{
                     fontFamily: "'Press Start 2P', cursive",
