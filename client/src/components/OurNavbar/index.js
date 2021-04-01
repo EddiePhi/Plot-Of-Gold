@@ -1,19 +1,33 @@
 import React from "react";
-import { Navbar, Nav} from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "./index.css";
 import { Link } from "react-router-dom";
 
 /////// DO NOT REMOVE COMMENTED CODE ///////
 
 function OurNavbar() {
-
   return (
     <>
       <Navbar variant="dark" className="custNav">
-        <Navbar.Brand href="/about"><p className="mx-auto" style={{fontFamily: "'Press Start 2P', cursive", margin:"0px"}}>Plot of Gold</p></Navbar.Brand>
+        <Navbar.Brand href="/about">
+          <p
+            className="mx-auto"
+            style={{ fontFamily: "'Press Start 2P', cursive", margin: "0px" }}
+          >
+            Plot of Gold
+          </p>
+        </Navbar.Brand>
         <Nav className="mr-auto">
           <Link className="nav-link" to="/about">
-            <p className="mx-auto" style={{fontFamily: "'Press Start 2P', cursive", margin:"10px"}}>About</p>
+            <p
+              className="mx-auto"
+              style={{
+                fontFamily: "'Press Start 2P', cursive",
+                margin: "10px",
+              }}
+            >
+              About
+            </p>
           </Link>
           {/* <Link className="nav-link" to="/login">
             Login
@@ -22,13 +36,29 @@ function OurNavbar() {
             Signup
           </Link> */}
           <Link className="nav-link" to="/home">
-            <p className="mx-auto" style={{fontFamily: "'Press Start 2P', cursive", margin:"10px"}}>Plots</p>
+            <p
+              className="mx-auto"
+              style={{
+                fontFamily: "'Press Start 2P', cursive",
+                margin: "10px",
+              }}
+            >
+              Plots
+            </p>
           </Link>
-          {/* <Link className="nav-link" to="/forum">
+          <Link className="nav-link" to="/forum">
             Forum
-          </Link> */}
+          </Link>
           <Link className="nav-link" to="/logout">
-            <p className="mx-auto" style={{fontFamily: "'Press Start 2P', cursive", margin:"10px"}}>Settings</p>
+            <p
+              className="mx-auto"
+              style={{
+                fontFamily: "'Press Start 2P', cursive",
+                margin: "10px",
+              }}
+            >
+              Settings
+            </p>
           </Link>
         </Nav>
         {/* <Container
