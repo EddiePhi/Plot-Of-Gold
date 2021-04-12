@@ -35,6 +35,29 @@ const API = {
   getPlants: function () {
     return axios.get("/plants");
   },
+
+  //Fotr request
+  postForum: function (forumData) {
+    return axios.post("/forumThread", forumData);
+  },
+
+  getForum: function () {
+    return axios.get("/forumThread");
+  },
+
+  // getBooks: function (query) {
+  //   return axios.get(BASEURL + query + APIKEY);
+  // },
+
+  // saveBook: function (bookData) {
+  //   return axios.post("/api/books", bookData);
+  // },
+
+  // getSaved: function () {
+  //   return axios.get("/api/books");
+  // },
+  // deleteBook: function (id) {
+  //   return axios.delete("/api/books/" + id);
 };
 
 export default API;

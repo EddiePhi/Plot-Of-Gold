@@ -4,21 +4,22 @@ const ForumComment = require("../../models/forumComment.js");
 const User = require("../../models/user.js");
 
 //Post ForumThread
-router.post("/:id", (req, res) => {
+router.post("/", (req, res) => {
   console.log(req.body);
   ForumThread.create(req.body)
-    .then((thread) => {
-      User.findOneAndUpdate(
-        { _id: req.params.id },
-        { $push: { forum_threads: thread._id } },
-        { new: true }
-      )
-        .then((forum) => {
-          console.log(forum);
-        })
-        .catch((err) => res.json(err));
-    })
+    // .then((thread) => {
+    //   User.findOneAndUpdate(
+    //     { _id: req.params.id },
+    //     { $push: { forum_threads: thread._id } },
+    //     { new: true }
+    //   )
+    //     .then((forum) => {
+    //       console.log(forum);
+    //     })
+    //     .catch((err) => res.json(err));
+    // })
     .then((dbForums) => {
+      console.log(dbForums);
       res.json(dbForums);
     })
     .catch((err) => {
