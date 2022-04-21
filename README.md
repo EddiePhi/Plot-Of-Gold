@@ -23,11 +23,10 @@ An app for all of your gardening needs! If you have the space, we have you cover
 
 ## Demo
 
-View the application at [Deployed Project Link](https://plotofgold.herokuapp.com/)
+View the application by clicking [this link here.](https://plotofgold.herokuapp.com/)
 
 ## Technology Stack
 
-This is where you want to demonstrate the technologies you used in this project and provide any links.
 | Technology | Description |
 |------------|-------------------------------------------|
 | HTML5 | Hyper Text Markup Language |
@@ -36,7 +35,7 @@ This is where you want to demonstrate the technologies you used in this project 
 | node.js | A JavaScript runtime |
 | Express | Fast, unopinionated, minimalist web framework for Node.js |
 | React | A JavaScript library for building user interfaces |
-| MongoDB | The database for modern applications |
+| MongoDB | The NoSQL database for modern applications |
 
 ## Features
 
@@ -47,13 +46,13 @@ This is where you want to demonstrate the technologies you used in this project 
 
 ## Installation
 
-1. In the location of your choosing clone the repo
+1. In the location of your choosing, clone the repo
 2. You will need MongoDB installed. We also reccomend Robo3T to view your Database
 
 - [MongoDB Install Intructions](https://docs.mongodb.com/guides/server/install/)
 - [Robo3T Install Instructions](https://robomongo.org/download)
 
-3. Run your termianl in the root folder of the cloned repo and run `npm install`
+3. Run your terminal in the root folder of the cloned repo and run `npm install`
 
 ## Usage
 
